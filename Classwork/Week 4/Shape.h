@@ -16,7 +16,7 @@ class Shape
 		                            // no implementation and decision should be made at derived class
         string getColor();	
 
-		double getPerimieter();								
+		double getPerimieter();						
 };
 
 #endif
