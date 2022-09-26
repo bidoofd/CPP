@@ -1,7 +1,7 @@
 #ifndef SHAPE_H // condition the definition to prevent multiple inclusion
 #define SHAPE_H
 #include <string>
-using namespace std;
+using namespace std;.
 
 class Shape
 {
