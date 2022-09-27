@@ -8,5 +8,5 @@ using namespace std;
 
 int main()
 {
-    Patient p1("Jason", 21, "Bob");
+    
 }

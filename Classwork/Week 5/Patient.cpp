@@ -4,7 +4,7 @@
 using namespace std;
 
 
-Patient::Patient(string name, int age, string date)
+Patient::Patient(string n, int a, string d)
 {
     name = n;
     age = a;
