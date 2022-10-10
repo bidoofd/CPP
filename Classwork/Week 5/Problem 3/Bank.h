@@ -15,3 +15,5 @@ class Bank
         Bank(string bName);
         void offerService();
 };
+
+#endif
