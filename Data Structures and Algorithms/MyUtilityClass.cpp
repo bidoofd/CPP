@@ -2,6 +2,7 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <map>
 
 using namespace std;
 
@@ -35,7 +36,7 @@ int myUtilityClass::countLine(string fname)
     return count;
 }
 
-int myUtilityClass::readFile(string fname)
+int myUtilityClass::readFileInt(string fname, string arrName)
 {
     string line;
     ifstream inFile(fname);
@@ -54,12 +55,15 @@ int myUtilityClass::readFile(string fname)
     }
     else
     {
-        cout << "Unable to open file." << endl;
+        return -1;
     }
-    this->arrSize = size;
+
+
+
     for(int a = 0; a < size; a++)
     {
-        this->intArr[a] = arr[a];
+        int value = arr[a];
+        this->arrMap.insert(make_pair(arrName + ": Arr[" + to_string(a) + "]", value));
     }
 
     return count;
@@ -67,8 +71,8 @@ int myUtilityClass::readFile(string fname)
 
 void myUtilityClass::displayArray()
 {
-    for(int a = 0; a < sizeof(this->intArr)/sizeof(this->intArr[0]); a++)
+    for(auto a = this->arrMap.cbegin(); a != arrMap.cend(); a++)
     {
-        cout << "Arr[" << a << "]: " << this->intArr[a] << endl;
+        cout << a->first << ": " << a->second << endl;
     }
 }

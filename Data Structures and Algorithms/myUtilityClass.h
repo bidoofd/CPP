@@ -1,18 +1,18 @@
 #ifndef MYUTILITYCLASS_H
 #define MYUTILITYCLASS_H
 #include <string>
+#include <map>
 using namespace std;
 
 class myUtilityClass
 {
     private:
         string name;
-        int arrSize;
-        int intArr[100];
+        map<string, int> arrMap;
     public:
         myUtilityClass();
         myUtilityClass(string name);
-        int readFile(string fileName);
+        int readFileInt(string fileName, string arrName);
         void displayArray();
         int writeFile();
         int countLine(string fileName);
