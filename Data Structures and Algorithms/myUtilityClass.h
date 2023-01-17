@@ -7,15 +7,17 @@ using namespace std;
 class myUtilityClass
 {
     private:
+        //variable names
         string name;
         map<string, int> arrMap;
     public:
-        myUtilityClass();
+        //public methods
         myUtilityClass(string name);
         int readFileInt(string fileName, string arrName);
         void displayArray();
         int writeFile();
         int countLine(string fileName);
+        bool findFile(string fileName);
 };
 
 #endif
