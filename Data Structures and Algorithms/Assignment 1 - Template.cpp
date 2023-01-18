@@ -18,7 +18,7 @@ int main()
     //Variable names
     string objectName, fileName, arrName, outFileName, recFile;
     int choice = 1;
-    int size;
+    int size, repeat;
 
     //Ascii art welcome message
 
@@ -27,7 +27,7 @@ int main()
     \ \/ \/ /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \| | 
      \     / \  ___/ |  |__\  \___(  <_> )|  Y Y  \\  ___/ \| 
       \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
-                  \/            \/              \/      \/ \/)" << endl;
+                  \/            \/      \_/     \/      \/ \/)" << endl;
 
     //Enter filepath for the output file to record
     //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/recFile.txt
@@ -108,12 +108,25 @@ int main()
             cout << "Enter the full output file name. " << endl;
             cin.ignore();
             getline(cin, outFileName);
+            cout << "Enter the amount of times you want the value to repeat: " << endl;
+            cin >> repeat;
 
             //Function to write to file
-            mUC.writeFileInt(arrName, size, outFileName, 2);
+            mUC.writeFileInt(arrName, size, outFileName, repeat);
 
             //end timer
             mUC.endTimer();
         }
     }
+
+    //ascii art goodbye message
+
+    cout << R"(   ____                     .______.                  ._. 
+  / ___\  ____    ____    __| _/\_ |__  ___.__.  ____ | | 
+ / /_/  >/  _ \  /  _ \  / __ |  | __ \<   |  |_/ __ \| | 
+ \___  /(  <_> )(  <_> )/ /_/ |  | \_\ \\___  |\  ___/ \| 
+/_____/  \____/  \____/ \____ |  |___  // ____| \___  >__ 
+        \______________/     \/      \/ \/          \/ \/ 
+                                                          )";
+
 }
