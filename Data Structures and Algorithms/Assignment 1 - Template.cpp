@@ -6,6 +6,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
 #include "myUtilityClass.h"
 
 int main()
@@ -59,9 +60,11 @@ int main()
         {
             //displays array stored in hashmap
             mUC.displayArray();
+            mUC.printTime();
         }
         else if(choice == 3)
         {
+            mUC.startTimer();
             cout << "Enter the array name. " << endl;
             cin.ignore();
             getline(cin, arrName);
@@ -71,6 +74,7 @@ int main()
             cin.ignore();
             getline(cin, outFileName);
             mUC.writeFileInt(arrName, size, outFileName);
+            mUC.endTimer();
         }
     }
 }

@@ -16,9 +16,8 @@ class myUtilityClass
         //variable names
         string name;
         unordered_map<string, vector<int>> arrMap;
-        time_point<system_clock> startTime;
-        time_point<system_clock> endTime;
-        bool isOutputting;
+        steady_clock::time_point startTime;
+        steady_clock::time_point endTime;
     public:
         //public methods
         myUtilityClass(string name);
@@ -30,9 +29,8 @@ class myUtilityClass
         bool findFile(string fileName);
         void writeOutput();
         void startTimer();
-        void stopTimer();
-        double msTimer();
-        double sTimer();
+        void endTimer();
+        void printTime();
 };
 
 #endif

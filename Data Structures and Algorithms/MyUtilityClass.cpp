@@ -63,34 +63,19 @@ bool myUtilityClass::findFile(string fileName)
 
 void myUtilityClass::startTimer()
 {
-    this->startTime = system_clock::now();
-    this->isOutputting = true;
+    this->startTime = steady_clock::now();
 }
 
-void myUtilityClass::stopTimer()
+void myUtilityClass::endTimer()
 {
-    this->endTime = system_clock::now();
-    this->isOutputting = false;
+    this->endTime = steady_clock::now();
 }
 
-double myUtilityClass::msTimer()
+void myUtilityClass::printTime()
 {
-    time_point<system_clock> endTime;
-    if(this->isOutputting)
-    {
-        endTime = system_clock::now();
-    }
-    else
-    {
-        endTime = this->endTime;
-    }
-
-    return duration_cast<milliseconds>(endTime - this->startTime).count();
-}
-
-double myUtilityClass::sTimer()
-{
-    return msTimer() / 1000.0;
+    cout << "Time format in HH:MM:SS.MS" << endl;
+    //cout << date::hh_mm_ss{duration_cast<milliseconds>(this->startTime - this->endTime)};
+    cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
 }
 
 //reads intger type files
