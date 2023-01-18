@@ -78,6 +78,11 @@ void myUtilityClass::printTime()
     cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
 }
 
+void myUtilityClass::writeOutput(fstream& recFile, string line)
+{
+    recFile << line << endl;
+}
+
 //reads intger type files
 int myUtilityClass::readFileInt(string fname, string arrName)
 {

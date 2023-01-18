@@ -6,6 +6,7 @@
 #include <vector>
 #include <ctime>
 #include <chrono>
+#include <fstream>
 
 using namespace std;
 using namespace std::chrono;
@@ -24,10 +25,9 @@ class myUtilityClass
         int readFileInt(string fileName, string arrName);
         int writeFileInt(string arrName, int arrSize, string outFileName);
         void displayArray();
-        int writeFile();
         int countLine(string fileName);
         bool findFile(string fileName);
-        void writeOutput();
+        void writeOutput(fstream& file, string line); // soon to be outputs every input into a file
         void startTimer();
         void endTimer();
         void printTime();

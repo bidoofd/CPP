@@ -12,14 +12,31 @@
 int main()
 {
     //Variable names
-    string objectName, fileName, arrName, outFileName;
+    string objectName, fileName, arrName, outFileName, recFile;
     int choice = 1;
     int size;
 
-    //Enter the name of an object just to use methods
-    cout << "Enter the name of myUtilityClass object." << endl;
-    getline(cin, objectName);
-    myUtilityClass mUC(objectName);
+    cout << R"(               .__.                                 ._. 
+    __  _  __  ____  |  |    ____   ____    _____    ____ | | 
+    \ \/ \/ /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \| | 
+     \     / \  ___/ |  |__\  \___(  <_> )|  Y Y  \\  ___/ \| 
+      \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
+                  \/            \/              \/      \/ \/)" << endl;
+
+    cout << "Enter the filename for output file: " << endl;
+    getline(cin, recFile);
+    fstream inFile(recFile);
+
+    //clears contents of file
+    inFile.open(recFile, ofstream::out | ofstream::trunc);
+    inFile.close();
+    //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/recFile.txt                                                    
+        //Enter the name of an object just to use methods
+        cout << "Enter the name of myUtilityClass object." << endl;
+        getline(cin, objectName);
+        myUtilityClass mUC(objectName);
+        mUC.writeOutput(inFile, "Enter the name of myUtilityClass object.");
+        mUC.writeOutput(inFile, objectName);
     
     while(choice != 4)
     {
