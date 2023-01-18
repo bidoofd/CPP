@@ -63,23 +63,29 @@ bool myUtilityClass::findFile(string fileName)
 
 void myUtilityClass::startTimer()
 {
+    //sets startTime to current point
     this->startTime = steady_clock::now();
 }
 
 void myUtilityClass::endTimer()
 {
+    //sets endTime to current point
     this->endTime = steady_clock::now();
 }
 
 void myUtilityClass::printTime()
 {
+    //print for clarification on format
     cout << "Time format in HH:MM:SS.MS" << endl;
-    //cout << date::hh_mm_ss{duration_cast<milliseconds>(this->startTime - this->endTime)};
+    
+    //prints out time using casts
+    //  - setw and setfill used for the extra 0 if the time is a single digit
     cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
 }
 
 void myUtilityClass::writeOutput(fstream& recFile, string line)
 {
+    //writes to the output file and ends with a newline
     recFile << line << endl;
 }
 
@@ -131,7 +137,7 @@ int myUtilityClass::readFileInt(string fname, string arrName)
     return count;
 }
 
-int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName)
+int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName, int repeat)
 {
     /*A method to write the content of an array into an output file. The method should get the array
     name, the array size and the name of the output file as arguments. The method will run through
@@ -149,7 +155,25 @@ int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName
         for(int a = 0; a < arrSize; a++)
         {
             cin >> line;
-            inFile << line << endl;  
+            if(repeat == 1)
+            {
+                inFile << line << endl;
+            }
+            else if(repeat > 1)
+            {
+                for(int b = 0; b < repeat; b++)
+                {
+                    if(b == repeat - 1)
+                    {
+                        inFile << line;
+                    }
+                    else
+                    {
+                        inFile << line << ",";
+                    }
+                }
+                inFile << endl;
+            }  
         }
         inFile.close();
         return 1;
