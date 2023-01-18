@@ -3,8 +3,11 @@
 #include <string>
 #include <fstream>
 #include <map>
+#include <ctime>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 //sets up name for object
 myUtilityClass::myUtilityClass(string n)
@@ -58,6 +61,38 @@ bool myUtilityClass::findFile(string fileName)
     }
 }
 
+void myUtilityClass::startTimer()
+{
+    this->startTime = system_clock::now();
+    this->isOutputting = true;
+}
+
+void myUtilityClass::stopTimer()
+{
+    this->endTime = system_clock::now();
+    this->isOutputting = false;
+}
+
+double myUtilityClass::msTimer()
+{
+    time_point<system_clock> endTime;
+    if(this->isOutputting)
+    {
+        endTime = system_clock::now();
+    }
+    else
+    {
+        endTime = this->endTime;
+    }
+
+    return duration_cast<milliseconds>(endTime - this->startTime).count();
+}
+
+double myUtilityClass::sTimer()
+{
+    return msTimer() / 1000.0;
+}
+
 //reads intger type files
 int myUtilityClass::readFileInt(string fname, string arrName)
 {
@@ -100,10 +135,41 @@ int myUtilityClass::readFileInt(string fname, string arrName)
         //int arra[a] element is stored into int value
         int value = arr[a];
         //uses hashmap insert function for key and value
-        this->arrMap.insert(make_pair(arrName + ": Arr[" + to_string(a) + "]", value));
+        this->arrMap[arrName].push_back(value);
     }
 
     return count;
+}
+
+int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName)
+{
+    /*A method to write the content of an array into an output file. The method should get the array
+    name, the array size and the name of the output file as arguments. The method will run through
+    the array and write all the elements to the output file then return the value 1 (indicating
+    successful writes). Exceptions for file handling must be handled inside the method and the
+    appropriate error messages must be displayed. In this case, the method should also return -1.*/
+
+    string line;
+
+    ofstream inFile(outFileName);
+    int arr[arrSize];
+    if(inFile.is_open())
+    {
+        cout << "Enter values to write into file: " << endl;
+        for(int a = 0; a < arrSize; a++)
+        {
+            cin >> line;
+            inFile << line << endl;  
+        }
+        inFile.close();
+        return 1;
+    }
+    else
+    {
+        cout << "Error writing to file" << endl;
+        inFile.close();
+        return -1;
+    }
 }
 
 void myUtilityClass::displayArray()
@@ -111,6 +177,10 @@ void myUtilityClass::displayArray()
     //When printing it cannot guarantee order due to it being a hashmap (unless linked hashmap?)
     for(auto a = this->arrMap.cbegin(); a != arrMap.cend(); a++)
     {
-        cout << a->first << ": " << a->second << endl;
+        cout << "Key: " << a->first << endl;
+        for(auto b = a->second.begin(); b != a->second.end(); b++)
+        {
+            cout << "Value: " << *b << endl;
+        }
     }
 }

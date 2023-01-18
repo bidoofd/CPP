@@ -1,108 +1,88 @@
 #include <iostream>
-using namespace std;
+#include <chrono>
+#include <ctime>
+#include <cmath>
 
-double division(int a, int b)
+class Timer
 {
-    if(b == 0)
+public:
+    void start()
     {
-        throw runtime_error("Error: Attempted to divide by zero\n");
+        m_StartTime = std::chrono::system_clock::now();
+        m_bRunning = true;
+    }
+    
+    void stop()
+    {
+        m_EndTime = std::chrono::system_clock::now();
+        m_bRunning = false;
+    }
+    
+    double elapsedMilliseconds()
+    {
+        std::chrono::time_point<std::chrono::system_clock> endTime;
+        
+        if(m_bRunning)
+        {
+            endTime = std::chrono::system_clock::now();
+        }
+        else
+        {
+            endTime = m_EndTime;
+        }
+        
+        return std::chrono::duration_cast<std::chrono::milliseconds>(endTime - m_StartTime).count();
+    }
+    
+    double elapsedSeconds()
+    {
+        return elapsedMilliseconds() / 1000.0;
     }
 
-    return (a/b);
+private:
+    std::chrono::time_point<std::chrono::system_clock> m_StartTime;
+    std::chrono::time_point<std::chrono::system_clock> m_EndTime;
+    bool                                               m_bRunning = false;
+};
+
+long fibonacci(unsigned n)
+{
+    if (n < 2) return n;
+    return fibonacci(n-1) + fibonacci(n-2);
 }
 
 int main()
 {
-    int x = 4;
-    int y = 2;
-    double z;
-    try
+//    std::chrono::time_point<std::chrono::system_clock> start, end;
+//    start = std::chrono::system_clock::now();
+//    Timer timer;
+//    timer.start();
+//    std::cout << "f(42) = " << fibonacci(42) << '\n';
+//    timer.stop();
+//    
+//    std::cout << "Time: " << timer.elapsed() << std::endl;
+//    end = std::chrono::system_clock::now();
+    
+//    std::chrono::duration<double> elapsed_seconds = end-start;
+//    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+    
+//    std::cout << "finished computation at " << std::ctime(&end_time)
+//    << "elapsed time: " << elapsed_seconds.count() << "s\n";
+    
+    Timer timer;
+    timer.start();
+    int counter = 0;
+    double test, test2;
+    while(timer.elapsedSeconds() < 10.0)
     {
-        z = division(x,y);
-        cout << " the result of the division is " << z << endl;
+        counter++;
+        test = std::cos(counter / M_PI);
+        test2 = std::sin(counter / M_PI);
     }
-    catch (runtime_error& e)
-    {
-        cerr << "Exception occured" << endl << e.what();
-    }
+    timer.stop();
+    
+    std::cout << counter << std::endl;
+    std::cout << "Seconds: " << timer.elapsedSeconds() << std::endl;
+    std::cout << "Milliseconds: " << timer.elapsedMilliseconds() << std::endl
+    ;
 }
-
-/*
-
-#ifndef AGENT_H
-#define AGENT_H
-#include "Seller.h"
-#include "Buyer.h"
-#include <string>
-#include <list>
-
-// passing two args through contactSeller
-//  -contactedSeller to send information to and store
-//  -templist details for info to store to seller
-//      -not finished fully because going to work on seller
-
-using namespace std;
-
-struct listingDetails{
-    Property* ownedProperty;
-    double sellingPrice = 3;
-    string date;
-    bool soldStatus;
-};
-
-class Agent{
-    private:
-        Seller* contactedSeller;
-        Buyer* contactedBuyer;
-        listingDetails tempList;
-
-        double sellingPrice;
-        string date;
-        bool soldStatus;
-    public:
-        void recordOffer(listingDetails tempList);
-        void contactSeller(Seller *contactedSeller, listingDetails tempList);
-        void modifyListing(listingDetails tempList);
-        double getSellingPrice();
-};
-
-#endif
-
-*/
-
-/*
-
-#ifndef AGENT_H
-#define AGENT_H
-#include "Seller.h"
-#include "Buyer.h"
-#include <string>
-#include <list>
-
-using namespace std;
-
-struct listingDetails{
-    Property* ownedProperty;
-    double sellingPrice = 3;
-    string date;
-    bool soldStatus;
-};
-
-class Agent{
-    private:
-        Seller* contactedSeller;
-        Buyer* contactedBuyer;
-        list<listingDetails*> *listing = new list<listingDetails*>;
-    public:
-        void recordOffer(listingDetails tempList);
-        void contactSeller();
-        void modifyListing(listingDetails tempList);
-        double getSellingPrice();
-        //passed listing through function
-
-        //created getSellingPrice function()
-};
-
-#endif
-
-*/
