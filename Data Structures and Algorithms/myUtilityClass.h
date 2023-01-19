@@ -29,6 +29,7 @@ class myUtilityClass
         //  - readFileInt : reads integer types of files
         //  - writeFileInt : writes out to a file specifically for integers
         //  - displayArray : displays the arrays stored in hashmap
+        //      - also has an overloaded class
         //  - countLine : counts the lines in the file to set size for array
         //  - findFile : whether or not filepath entered is valid
         //  - writeOutput : constantly writes out to a recording file
@@ -37,14 +38,16 @@ class myUtilityClass
         //  - printTime : prints out timer
         myUtilityClass(string name);
         int readFileInt(string fileName, string arrName);
-        int writeFileInt(string arrName, int arrSize, string outFileName, int repeat);
+        int writeFileInt(string arrName, int arrSize, string outFileName, int repeat, fstream& file);
         void displayArray();
+        void displayArray(fstream &file);
         int countLine(string fileName);
         bool findFile(string fileName);
         void writeOutput(fstream& file, string line); // soon to be outputs every input into a file
         void startTimer();
         void endTimer();
         void printTime();
+        void printTime(fstream& file);
 };
 
 #endif

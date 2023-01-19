@@ -5,6 +5,7 @@
 #include <map>
 #include <ctime>
 #include <chrono>
+#include <sstream>
 
 using namespace std;
 using namespace std::chrono;
@@ -83,6 +84,21 @@ void myUtilityClass::printTime()
     cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
 }
 
+void myUtilityClass::printTime(fstream& inFile)
+{
+    //print for clarification on format
+    cout << "Time format in HH:MM:SS.MS" << endl;
+    
+    //prints out time using casts
+    //  - setw and setfill used for the extra 0 if the time is a single digit
+    cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
+    stringstream line;
+    line << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
+
+    writeOutput(inFile, "Time format in HH:MM:SS.MS");
+    writeOutput(inFile, line.str());
+}
+
 void myUtilityClass::writeOutput(fstream& recFile, string line)
 {
     //writes to the output file and ends with a newline
@@ -137,7 +153,7 @@ int myUtilityClass::readFileInt(string fname, string arrName)
     return count;
 }
 
-int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName, int repeat)
+int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName, int repeat, fstream& recFile)
 {
     /*A method to write the content of an array into an output file. The method should get the array
     name, the array size and the name of the output file as arguments. The method will run through
@@ -152,9 +168,13 @@ int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName
     if(inFile.is_open())
     {
         cout << "Enter values to write into file: " << endl;
+
+        writeOutput(recFile, "Enter the values to write into file: ");
         for(int a = 0; a < arrSize; a++)
         {
             cin >> line;
+
+            writeOutput(recFile, line);
             if(repeat == 1)
             {
                 inFile << line << endl;
@@ -181,6 +201,7 @@ int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName
     else
     {
         cout << "Error writing to file" << endl;
+        writeOutput(recFile, "Error writing to file");
         inFile.close();
         return -1;
     }
@@ -195,6 +216,21 @@ void myUtilityClass::displayArray()
         for(auto b = a->second.begin(); b != a->second.end(); b++)
         {
             cout << "Value: " << *b << endl;
+        }
+    }
+}
+
+void myUtilityClass::displayArray(fstream &inFile)
+{
+    //When printing it cannot guarantee order due to it being a hashmap (unless linked hashmap?)
+    for(auto a = this->arrMap.cbegin(); a != arrMap.cend(); a++)
+    {
+        cout << "Key: " << a->first << endl;
+        writeOutput(inFile, "Key: " + a->first);
+        for(auto b = a->second.begin(); b != a->second.end(); b++)
+        {
+            cout << "Value: " << *b << endl;
+            writeOutput(inFile, "Value: " + *b);
         }
     }
 }

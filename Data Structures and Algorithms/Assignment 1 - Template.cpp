@@ -13,6 +13,8 @@
 #include <ctime>
 #include "myUtilityClass.h"
 
+using namespace std;
+
 int main()
 {
     //Variable names
@@ -60,6 +62,13 @@ int main()
         cout << "4. Exit" << endl;
         cin >> choice;
 
+        mUC.writeOutput(inFile, "Enter which option you would like to choose: ");
+        mUC.writeOutput(inFile, "1. Read File");
+        mUC.writeOutput(inFile, "2. Print Arrays");
+        mUC.writeOutput(inFile, "3. Write File");
+        mUC.writeOutput(inFile, "4. Exit");
+        mUC.writeOutput(inFile, to_string(choice));
+
         //If statement menu path
         if(choice == 1)
         {
@@ -67,6 +76,10 @@ int main()
             cout << "Enter the full filepath of your text file: " << endl;
             cin.ignore();
             getline(cin, fileName);
+
+            mUC.writeOutput(inFile, "Enter the full filepath of your text file: ");
+            mUC.writeOutput(inFile, fileName);
+
             //Enter name of array (acts as key)
             cout << "Enter the name of your array" << endl;
             cin.ignore(cin.rdbuf()->in_avail()); //clears buffer from escape character of \n from getline previously
@@ -75,22 +88,28 @@ int main()
             //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/abcdef.txt
 
             getline(cin, arrName);
+
+            mUC.writeOutput(inFile, "Enter the name of your array");
+            mUC.writeOutput(inFile, arrName);
+
             //If statement to see if it can find a file
             if(mUC.findFile(fileName))
             {
                 //if successful prints out number of lines in file
                 cout << "Success! Amount of numbers in file is: " << mUC.readFileInt(fileName, arrName) << "." << endl;
+                mUC.writeOutput(inFile, "Success! Amount of numbers in file is: " + to_string(mUC.readFileInt(fileName, arrName)) + ".");
             }
             else
             {
                 //otherwise does not do anything
                 cout << "Unable to read file." << endl;
+                mUC.writeOutput(inFile, "Unable to read file.");
             }
         }
         else if(choice == 2)
         {
             //displays array stored in hashmap
-            mUC.displayArray();
+            mUC.displayArray(inFile);
             //prints stopwatch time
             mUC.printTime();
         }
