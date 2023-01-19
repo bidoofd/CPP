@@ -229,8 +229,8 @@ void myUtilityClass::displayArray(fstream &inFile)
         writeOutput(inFile, "Key: " + a->first);
         for(auto b = a->second.begin(); b != a->second.end(); b++)
         {
-            cout << "Value: " << *b << endl;
-            writeOutput(inFile, "Value: " + *b);
+            cout << "Value: " << to_string(*b) << endl;
+            writeOutput(inFile, "Value: " + to_string(*b));
         }
     }
 }

@@ -18,9 +18,11 @@ using namespace std;
 int main()
 {
     //Variable names
-    string objectName, fileName, arrName, outFileName, recFile;
+    string objectName, arrName, line;
     int choice = 1;
     int size, repeat;
+
+    string recFile, fileName, outFileName = "/HW_01/HW_Environment/";
 
     //Ascii art welcome message
 
@@ -32,10 +34,11 @@ int main()
                   \/            \/      \_/     \/      \/ \/)" << endl;
 
     //Enter filepath for the output file to record
-    //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/recFile.txt
+    //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/HW_01/HW_Environment/recFile.txt
 
     cout << "Enter the filename for output file: " << endl;
-    getline(cin, recFile);
+    getline(cin, line);
+    recFile.append(line);
     fstream inFile(recFile);
 
     //clears contents of recording output file
@@ -74,7 +77,8 @@ int main()
             //Enter filepath name
             cout << "Enter the full filepath of your text file: " << endl;
             cin.ignore();
-            getline(cin, fileName);
+            getline(cin, line);
+            fileName.append(line);
 
             mUC.writeOutput(inFile, "Enter the full filepath of your text file: ");
             mUC.writeOutput(inFile, fileName);
@@ -133,7 +137,7 @@ int main()
             cin >> repeat;
 
             //Function to write to file
-            mUC.writeFileInt(arrName, size, outFileName, repeat);
+            mUC.writeFileInt(arrName, size, outFileName, repeat, inFile);
 
             //end timer
             mUC.endTimer();
