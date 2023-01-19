@@ -125,7 +125,7 @@ int main()
             cin >> size;
 
             //File name for output file
-            //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/output.txt
+            //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/HW_01/output.txt
             cout << "Enter the full output file name. " << endl;
             cin.ignore();
             getline(cin, outFileName);
