@@ -42,7 +42,6 @@ int main()
     inFile.open(recFile, ofstream::out | ofstream::trunc);
     inFile.close();
 
-    //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/recFile.txt                                                    
     //Enter the name of an object just to use methods
     cout << "Enter the name of myUtilityClass object." << endl;
     getline(cin, objectName);
@@ -124,6 +123,9 @@ int main()
             getline(cin, arrName);
             cout << "Enter the array size. " << endl;
             cin >> size;
+
+            //File name for output file
+            //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/output.txt
             cout << "Enter the full output file name. " << endl;
             cin.ignore();
             getline(cin, outFileName);
