@@ -38,16 +38,16 @@ class myUtilityClass
         //  - printTime : prints out timer
         myUtilityClass(string name);
         int readFileInt(string fileName, string arrName);
-        int writeFileInt(string arrName, int arrSize, string outFileName, int repeat, fstream& file);
+        int writeFileInt(string arrName, int arrSize, string outFileName, int repeat, ofstream& file);
         void displayArray();
-        void displayArray(fstream &file);
+        void displayArray(ofstream &file);
         int countLine(string fileName);
         bool findFile(string fileName);
-        void writeOutput(fstream& file, string line); // soon to be outputs every input into a file
+        void writeOutput(ofstream& file, string line);
         void startTimer();
         void endTimer();
         void printTime();
-        void printTime(fstream& file);
+        void printTime(ofstream& file);
 };
 
 #endif

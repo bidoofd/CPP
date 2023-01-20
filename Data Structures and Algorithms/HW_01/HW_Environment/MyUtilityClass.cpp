@@ -1,11 +1,11 @@
 #include "myUtilityClass.h"
 #include <iostream>
 #include <string>
-#include <fstream>
 #include <map>
 #include <ctime>
 #include <chrono>
 #include <sstream>
+#include <iomanip>
 
 using namespace std;
 using namespace std::chrono;
@@ -84,7 +84,7 @@ void myUtilityClass::printTime()
     cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
 }
 
-void myUtilityClass::printTime(fstream& inFile)
+void myUtilityClass::printTime(ofstream& inFile)
 {
     //print for clarification on format
     cout << "Time format in HH:MM:SS.MS" << endl;
@@ -99,7 +99,7 @@ void myUtilityClass::printTime(fstream& inFile)
     writeOutput(inFile, line.str());
 }
 
-void myUtilityClass::writeOutput(fstream& recFile, string line)
+void myUtilityClass::writeOutput(ofstream& recFile, string line)
 {
     //writes to the output file and ends with a newline
     recFile << line << endl;
@@ -153,7 +153,7 @@ int myUtilityClass::readFileInt(string fname, string arrName)
     return count;
 }
 
-int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName, int repeat, fstream& recFile)
+int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName, int repeat, ofstream& recFile)
 {
     /*A method to write the content of an array into an output file. The method should get the array
     name, the array size and the name of the output file as arguments. The method will run through
@@ -220,7 +220,7 @@ void myUtilityClass::displayArray()
     }
 }
 
-void myUtilityClass::displayArray(fstream &inFile)
+void myUtilityClass::displayArray(ofstream &inFile)
 {
     //When printing it cannot guarantee order due to it being a hashmap (unless linked hashmap?)
     for(auto a = this->arrMap.cbegin(); a != arrMap.cend(); a++)

@@ -8,7 +8,6 @@
 //  - getline is being used for strings with spaces
 
 #include <iostream>
-#include <fstream>
 #include <string>
 #include <ctime>
 #include "myUtilityClass.h"
@@ -22,7 +21,7 @@ int main()
     int choice = 1;
     int size, repeat;
 
-    string recFile, fileName, outFileName = "/HW_01/HW_Environment/";
+    string recFile, fileName, outFileName = "\\HW_01\\HW_Environment\\";
 
     //Ascii art welcome message
 
@@ -39,10 +38,10 @@ int main()
     cout << "Enter the filename for output file: " << endl;
     getline(cin, line);
     recFile.append(line);
-    fstream inFile(recFile);
+    ofstream inFile(recFile);
 
     //clears contents of recording output file
-    inFile.open(recFile, ofstream::out | ofstream::trunc);
+    inFile.open(recFile, ios::trunc);
     inFile.close();
 
     //Enter the name of an object just to use methods
@@ -51,24 +50,27 @@ int main()
     myUtilityClass mUC(objectName);
 
     //Writes to the output file the print statement and input
+    inFile.open(recFile);
     mUC.writeOutput(inFile, "Enter the name of myUtilityClass object.");
     mUC.writeOutput(inFile, objectName);
     
-    while(choice != 4)
+    while(choice != 5)
     {
         //Menu
         cout << "Enter which option you would like to choose: " << endl;
         cout << "1. Read File" << endl;
         cout << "2. Print Arrays" << endl;
         cout << "3. Write File" << endl;
-        cout << "4. Exit" << endl;
+        cout << "4. Print Time" << endl;
+        cout << "5. Exit" << endl;
         cin >> choice;
 
         mUC.writeOutput(inFile, "Enter which option you would like to choose: ");
         mUC.writeOutput(inFile, "1. Read File");
         mUC.writeOutput(inFile, "2. Print Arrays");
         mUC.writeOutput(inFile, "3. Write File");
-        mUC.writeOutput(inFile, "4. Exit");
+        mUC.writeOutput(inFile, "4. Print File");
+        mUC.writeOutput(inFile, "5. Exit");
         mUC.writeOutput(inFile, to_string(choice));
 
         //If statement menu path
@@ -113,8 +115,6 @@ int main()
         {
             //displays array stored in hashmap
             mUC.displayArray(inFile);
-            //prints stopwatch time
-            mUC.printTime();
         }
         else if(choice == 3)
         {
@@ -142,6 +142,11 @@ int main()
             //end timer
             mUC.endTimer();
         }
+        else if(choice == 4)
+        {
+            //prints stopwatch time
+            mUC.printTime();
+        }
     }
 
     //ascii art goodbye message
@@ -152,6 +157,8 @@ int main()
  \___  /(  <_> )(  <_> )/ /_/ |  | \_\ \\___  |\  ___/ \| 
 /_____/  \____/  \____/ \____ |  |___  // ____| \___  >__ 
         \______________/     \/      \/ \/          \/ \/ 
-                                                          )";
+                                                          )" << endl;
+
+    system("pause");
 
 }
