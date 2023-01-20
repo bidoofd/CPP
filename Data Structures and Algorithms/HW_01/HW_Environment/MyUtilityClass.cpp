@@ -16,33 +16,6 @@ myUtilityClass::myUtilityClass(string n)
     this->name = n;
 }
 
-//counts the line in the file to set size for array
-int myUtilityClass::countLine(string fname)
-{
-    //variable names
-    string line;
-    int count = 0;
-    ifstream inFile(fname);
-    //if statement for opening file
-    if(inFile.is_open())
-    {
-        //if true go in a while loop and count
-        while(getline(inFile, line))
-        {
-            count++;
-        }
-        //closes file
-        inFile.close();
-    }
-    else
-    {
-        //otherwise do nothing but print
-        cout << "Unable to open file." << endl;
-    }
-    //returns count of lines if file can open
-    return count;
-}
-
 //bool to see if a file exists
 bool myUtilityClass::findFile(string fileName)
 {
@@ -60,49 +33,6 @@ bool myUtilityClass::findFile(string fileName)
         //otherwise return false
         return false;
     }
-}
-
-void myUtilityClass::startTimer()
-{
-    //sets startTime to current point
-    this->startTime = steady_clock::now();
-}
-
-void myUtilityClass::endTimer()
-{
-    //sets endTime to current point
-    this->endTime = steady_clock::now();
-}
-
-void myUtilityClass::printTime()
-{
-    //print for clarification on format
-    cout << "Time format in HH:MM:SS.MS" << endl;
-    
-    //prints out time using casts
-    //  - setw and setfill used for the extra 0 if the time is a single digit
-    cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
-}
-
-void myUtilityClass::printTime(ofstream& inFile)
-{
-    //print for clarification on format
-    cout << "Time format in HH:MM:SS.MS" << endl;
-    
-    //prints out time using casts
-    //  - setw and setfill used for the extra 0 if the time is a single digit
-    cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
-    stringstream line;
-    line << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
-
-    writeOutput(inFile, "Time format in HH:MM:SS.MS");
-    writeOutput(inFile, line.str());
-}
-
-void myUtilityClass::writeOutput(ofstream& recFile, string line)
-{
-    //writes to the output file and ends with a newline
-    recFile << line << endl;
 }
 
 //reads intger type files
@@ -207,6 +137,37 @@ int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName
     }
 }
 
+void myUtilityClass::printTime()
+{
+    //print for clarification on format
+    cout << "Time format in HH:MM:SS.MS" << endl;
+    
+    //prints out time using casts
+    //  - setw and setfill used for the extra 0 if the time is a single digit
+    cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
+}
+
+void myUtilityClass::printTime(ofstream& inFile)
+{
+    //print for clarification on format
+    cout << "Time format in HH:MM:SS.MS" << endl;
+    
+    //prints out time using casts
+    //  - setw and setfill used for the extra 0 if the time is a single digit
+    cout << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
+    stringstream line;
+    line << setw(2) << setfill('0') << duration_cast<hours>(this->endTime - this->startTime).count() << ":"  << setw(2) << setfill('0') << duration_cast<minutes>(this->endTime - this->startTime).count() << ":" << setw(2) << setfill('0')  << duration_cast<milliseconds>(this->endTime - this->startTime).count() / 1000.0 << endl;
+
+    writeOutput(inFile, "Time format in HH:MM:SS.MS");
+    writeOutput(inFile, line.str());
+}
+
+void myUtilityClass::writeOutput(ofstream& recFile, string line)
+{
+    //writes to the output file and ends with a newline
+    recFile << line << endl;
+}
+
 void myUtilityClass::displayArray()
 {
     //When printing it cannot guarantee order due to it being a hashmap (unless linked hashmap?)
@@ -233,4 +194,43 @@ void myUtilityClass::displayArray(ofstream &inFile)
             writeOutput(inFile, "Value: " + to_string(*b));
         }
     }
+}
+
+//counts the line in the file to set size for array
+int myUtilityClass::countLine(string fname)
+{
+    //variable names
+    string line;
+    int count = 0;
+    ifstream inFile(fname);
+    //if statement for opening file
+    if(inFile.is_open())
+    {
+        //if true go in a while loop and count
+        while(getline(inFile, line))
+        {
+            count++;
+        }
+        //closes file
+        inFile.close();
+    }
+    else
+    {
+        //otherwise do nothing but print
+        cout << "Unable to open file." << endl;
+    }
+    //returns count of lines if file can open
+    return count;
+}
+
+void myUtilityClass::startTimer()
+{
+    //sets startTime to current point
+    this->startTime = steady_clock::now();
+}
+
+void myUtilityClass::endTimer()
+{
+    //sets endTime to current point
+    this->endTime = steady_clock::now();
 }

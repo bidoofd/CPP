@@ -37,17 +37,20 @@ class myUtilityClass
         //  - endTimer : ends the timer
         //  - printTime : prints out timer
         myUtilityClass(string name);
+
+        bool findFile(string fileName);
         int readFileInt(string fileName, string arrName);
         int writeFileInt(string arrName, int arrSize, string outFileName, int repeat, ofstream& file);
+
         void displayArray();
         void displayArray(ofstream &file);
-        int countLine(string fileName);
-        bool findFile(string fileName);
-        void writeOutput(ofstream& file, string line);
-        void startTimer();
-        void endTimer();
         void printTime();
         void printTime(ofstream& file);
+        void writeOutput(ofstream& file, string line);
+        
+        int countLine(string fileName);
+        void startTimer();
+        void endTimer();
 };
 
 #endif
