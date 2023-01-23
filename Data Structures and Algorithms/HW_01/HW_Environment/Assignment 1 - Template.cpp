@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <limits.h>
 #include "myUtilityClass.h"
 
 using namespace std;
@@ -21,7 +22,7 @@ int main()
     int choice = 1;
     int size, repeat;
 
-    string recFile, fileName, outFileName = "\\HW_01\\HW_Environment\\";
+    string recFile = "./";
 
     //Ascii art welcome message
 
@@ -56,6 +57,8 @@ int main()
     
     while(choice != 5)
     {
+        string fileName, outFileName = "./"; //resets filepath
+        line = "";
         //Menu
         cout << "Enter which option you would like to choose: " << endl;
         cout << "1. Read File" << endl;
@@ -77,21 +80,19 @@ int main()
         if(choice == 1)
         {
             //Enter filepath name
-            cout << "Enter the full filepath of your text file: " << endl;
+            cout << "Enter the name of your text file: " << endl;
             cin.ignore();
             getline(cin, line);
             fileName.append(line);
 
-            mUC.writeOutput(inFile, "Enter the full filepath of your text file: ");
+            cout << fileName << endl;
+
+            mUC.writeOutput(inFile, "Enter the name of your text file: ");
             mUC.writeOutput(inFile, fileName);
 
             //Enter name of array (acts as key)
             cout << "Enter the name of your array" << endl;
             cin.ignore(cin.rdbuf()->in_avail()); //clears buffer from escape character of \n from getline previously
-
-            //Filepath test comment below
-            //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/abcdef.txt
-
             getline(cin, arrName);
 
             mUC.writeOutput(inFile, "Enter the name of your array");
@@ -110,6 +111,8 @@ int main()
                 cout << "Unable to read file." << endl;
                 mUC.writeOutput(inFile, "Unable to read file.");
             }
+            cin.clear();
+            fflush(stdin);
         }
         else if(choice == 2)
         {
@@ -128,11 +131,12 @@ int main()
             cout << "Enter the array size. " << endl;
             cin >> size;
 
-            //File name for output file
-            //Users/trando/Desktop/coding/c++/Data Structures and Algorithms/HW_01/output.txt
-            cout << "Enter the full output file name. " << endl;
+            cout << "Enter the text file name. " << endl;
             cin.ignore();
             getline(cin, outFileName);
+            outFileName.append(line);
+
+            cout << outFileName << endl;
             cout << "Enter the amount of times you want the value to repeat: " << endl;
             cin >> repeat;
 

@@ -1,5 +1,29 @@
 Enter the name of myUtilityClass object.
-van
+name
+Enter which option you would like to choose: 
+1. Read File
+2. Print Arrays
+3. Write File
+4. Print File
+5. Exit
+3
+Enter the values to write into file: 
+1
+2
+3
+Enter which option you would like to choose: 
+1. Read File
+2. Print Arrays
+3. Write File
+4. Print File
+5. Exit
+3
+Enter the values to write into file: 
+1
+2
+3
+4
+5
 Enter which option you would like to choose: 
 1. Read File
 2. Print Arrays
