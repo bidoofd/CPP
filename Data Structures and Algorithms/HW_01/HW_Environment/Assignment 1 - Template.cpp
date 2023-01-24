@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <limits.h>
 #include "myUtilityClass.h"
 
 using namespace std;

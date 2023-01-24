@@ -42,7 +42,7 @@ int myUtilityClass::readFileInt(string fname, string arrName)
     string line;
     ifstream inFile(fname);
     int size = countLine(fname);
-    int arr[size];
+    int *arr = new int[size];
     int count = 0;
 
     //if statement to open file
@@ -79,7 +79,7 @@ int myUtilityClass::readFileInt(string fname, string arrName)
         //uses hashmap insert function for key and value
         this->arrMap[arrName].push_back(value);
     }
-
+    delete []arr;
     return count;
 }
 
@@ -94,7 +94,7 @@ int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName
     string line;
 
     ofstream inFile(outFileName);
-    int arr[arrSize];
+    int *arr = new int[arrSize];
     if(inFile.is_open())
     {
         cout << "Enter values to write into file: " << endl;
@@ -125,6 +125,7 @@ int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName
                 inFile << endl;
             }  
         }
+        delete []arr;
         inFile.close();
         return 1;
     }
@@ -132,6 +133,7 @@ int myUtilityClass::writeFileInt(string arrName, int arrSize, string outFileName
     {
         cout << "Error writing to file" << endl;
         writeOutput(recFile, "Error writing to file");
+        delete []arr;
         inFile.close();
         return -1;
     }
