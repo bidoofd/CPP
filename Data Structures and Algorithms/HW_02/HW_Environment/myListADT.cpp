@@ -52,4 +52,15 @@ int myListADT::insert(int index, int object)
     {
         return -2;
     }
+    if(index >= 0 && index <= this->pointer)
+    {
+        for(int a = this->pointer; a > index; a--)
+        {
+            this->array[a] = this->array[a-1];
+        }
+        this->array[index] = object;
+        this->pointer = this->pointer + 1;
+        return this->pointer;
+    }
+    return -1;
 }
