@@ -8,6 +8,7 @@ class myListADT
 {
     private:
         string name;
+        int pointer = 0;
         int length = 0;
         int *array = new int[length];
     public:
