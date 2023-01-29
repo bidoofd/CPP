@@ -1,18 +1,21 @@
 #include <iostream>
 #include <string>
+#include "myListADT.h"
 
 using namespace std;
 
 int main()
 {
-    int array[256], size, values;
+    int size;
+    string name;
 
-    cout << "Enter in how many values you want to enter into the array: " << endl;
+    cout << "Enter the size of the array" << endl;
     cin >> size;
-    cout << "Enter in the values: " << endl;
-    for(int a = 0; a < size; a++)
-    {
-        cin >> values;
-        array[a] = values;
-    }
+
+    cout << "Enter the name of myListADT object" << endl;
+    getline(cin, name);
+
+    myListADT mLA(name, size);
+
+    cout << mLA.isEmpty() << endl;
 }

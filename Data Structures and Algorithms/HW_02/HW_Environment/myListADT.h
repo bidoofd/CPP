@@ -8,8 +8,10 @@ class myListADT
 {
     private:
         string name;
-        int array[256];
+        int length = 0;
+        int *array = new int[length];
     public:
+        myListADT(string name, int size);
         int isEmpty();
         int size();
         int at(int i);
