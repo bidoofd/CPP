@@ -10,6 +10,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
+#include <limits.h>
 #include "myUtilityClass.h"
 
 using namespace std;
@@ -83,8 +84,6 @@ int main()
             cin.ignore();
             getline(cin, line);
             fileName.append(line);
-
-            cout << fileName << endl;
 
             mUC.writeOutput(inFile, "Enter the name of your text file: ");
             mUC.writeOutput(inFile, fileName);
