@@ -2,6 +2,8 @@
 
 using namespace std;
 
+
+//sets up myListADT class
 myListADT::myListADT(string n, int s)
 {
     this->name = n;
@@ -9,6 +11,7 @@ myListADT::myListADT(string n, int s)
     this->length = s;
 }
 
+//checks to see if the list in class is empty
 int myListADT::isEmpty()
 {
     if(this->length == 0)
@@ -21,23 +24,28 @@ int myListADT::isEmpty()
     }
 }
 
+
+// returns the size of the list at the time
 int myListADT::size()
 {
-    return this->length;
+    return this->pointer;
 }
 
+//returns value at the index
 int myListADT::at(int index)
 {
-    if(this->length != 0)
+    if(index >= 0 && index < this->pointer)
     {
         return this->array[index];
     }
     return -1;
 }
 
+
+//sets value at the index
 int myListADT::set(int index, int object)
 {
-    if(this->array[index] > 0 && this->length != 0)
+    if(index >= 0 && index < this->pointer)
     {
         int oldObj = this->array[index];
         this->array[index] = object;
@@ -46,6 +54,8 @@ int myListADT::set(int index, int object)
     return -1;
 }
 
+
+//inserts a value at a specific index in the list
 int myListADT::insert(int index, int object)
 {
     if(this->pointer == this->length)

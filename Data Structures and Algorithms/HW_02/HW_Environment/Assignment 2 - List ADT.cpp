@@ -24,4 +24,11 @@ int main()
     cout << mLA.insert(3, 4) << endl;
     cout << mLA.insert(4, 5) << endl;
     cout << mLA.insert(5, 6) << endl;
+
+    cout << mLA.at(0) << endl;
+    cout << mLA.at(1) << endl;
+    cout << mLA.at(2) << endl;
+    cout << mLA.at(3) << endl;
+    cout << mLA.at(4) << endl;
+    cout << mLA.at(5) << endl;
 }
