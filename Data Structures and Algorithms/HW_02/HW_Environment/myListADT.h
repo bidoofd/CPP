@@ -19,6 +19,7 @@ class myListADT
         int set(int i, int o);
         int insert(int i, int o);
         int erase(int i);
+        void printList();
 };
 
 #endif

@@ -1,4 +1,6 @@
 #include "myListADT.h"
+#include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -76,17 +78,45 @@ int myListADT::insert(int index, int object)
     //If statement to see if index is valid
     if(index >= 0 && index <= this->pointer)
     {
-        //For loop to start at position of positional pointer to shift every element to the right before insertion
-        for(int a = this->pointer; a > index; a--)
+        //For loop to start at position of the pointer to shift every element to the right before insertion
+        for(int a = this->pointer; a >= index; a--)
         {
+            cout << "index: " << a << endl;
             this->array[a] = this->array[a-1];
         }
         // stores the object at inputted index
         this->array[index] = object;
         // adds 1 to positional pointer
         this->pointer = this->pointer + 1;
-        //returns the poitner
+        //returns the pointer
         return this->pointer;
     }
     return -1;
+}
+
+int myListADT::erase(int index)
+{
+    if(this->pointer == 0)
+    {
+        return -2;
+    }
+    if(index >= 0 && index <= this->pointer)
+    {
+        int temp = this->array[index];
+        for(int a = index; a > index; a--)
+        {
+            this->array[a] = this->array[a-1];
+        }
+        this->pointer = this->pointer - 1;
+        return temp;
+    }
+    return -1;
+}
+
+void myListADT::printList()
+{
+    for(int a = 0; a < this->pointer; a++)
+    {
+        cout << "[" << a << "]" << ": " << this->array[a] << endl;
+    }
 }
