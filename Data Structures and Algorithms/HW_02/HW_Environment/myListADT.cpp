@@ -22,6 +22,8 @@ int myListADT::isEmpty()
     {
         return 1;
     }
+
+    // Otherwise return 0
     else
     {
         return 0;
@@ -46,6 +48,8 @@ int myListADT::at(int index)
     {
         return this->array[index];
     }
+
+    // return -1 if index does not exist
     return -1;
 }
 
@@ -63,6 +67,8 @@ int myListADT::set(int index, int object)
         // returns the old value
         return oldObj;
     }
+
+    // return -1 if index does not exist
     return -1;
 }
 
@@ -91,30 +97,44 @@ int myListADT::insert(int index, int object)
         //returns the pointer
         return this->pointer;
     }
+
+    // return -1 if index does not exist
     return -1;
 }
 
 int myListADT::erase(int index)
 {
+    // If the pointer size is 0, then returns -2
     if(this->pointer == 0)
     {
         return -2;
     }
+
+    // Checks to see if the index exists
     if(index >= 0 && index <= this->pointer)
     {
-        int temp = this->array[index];
+        // Stores the erasing value in a variable
+        int erasedNum = this->array[index];
+        // For loop to shift elements to the left
         for(int a = index; a > index; a--)
         {
             this->array[a] = this->array[a-1];
         }
+
+        // Decreases pointer size
         this->pointer = this->pointer - 1;
-        return temp;
+
+        // return erased value
+        return erasedNum;
     }
+
+    // return -1 if index does not exist
     return -1;
 }
 
 void myListADT::printList()
 {
+    //prints out contents of list
     for(int a = 0; a < this->pointer; a++)
     {
         cout << "[" << a << "]" << ": " << this->array[a] << endl;
