@@ -53,7 +53,7 @@ int main()
 
     // Entering name to create object
     cout << "Enter the name of myListADT object" << endl;
-    cin.ignore();
+    cin.ignore(); //ignores newline character from line 52 "cin >> size"
     getline(cin, name);
 
     myListADT mLA(name, size);
