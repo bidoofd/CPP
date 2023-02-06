@@ -19,7 +19,9 @@ class myListADT
         int set(int i, int o);
         int insert(int i, int o);
         int erase(int i);
-        void printList();
+        void printList(ofstream& file);
+
+        void writeOutput(ofstream& file, string line);
 };
 
 #endif

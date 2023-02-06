@@ -1,5 +1,6 @@
 #include "myListADT.h"
 #include <iostream>
+#include <fstream>
 #include <string>
 
 using namespace std;
@@ -132,11 +133,17 @@ int myListADT::erase(int index)
     return -1;
 }
 
-void myListADT::printList()
+void myListADT::printList(ofstream& file)
 {
     //prints out contents of list
     for(int a = 0; a < this->pointer; a++)
     {
         cout << "[" << a << "]" << ": " << this->array[a] << endl;
     }
+}
+
+void myListADT::writeOutput(ofstream& recFile, string line)
+{
+    //writes to the output file and ends with a newline
+    recFile << line << endl;
 }

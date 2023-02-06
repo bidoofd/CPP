@@ -1,0 +1,272 @@
+                     .__.                                 ._. 
+    __  _  __  ____  |  |    ____   ____    _____    ____ | | 
+    \ \/ \/ /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \| | 
+     \     / \  ___/ |  |__\  \___(  <_> )|  Y Y  \\  ___/ \| 
+      \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
+                  \/            \/      \_/     \/      \/ \/
+Enter the size of the array
+10
+Enter the name of myListADT object
+ADT1
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+1
+The list is empty.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+5
+Enter the index you want to insert: 
+0
+Enter the value you want to insert: 
+1
+The size of the list is: 1
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+7
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+5
+Enter the index you want to insert: 
+1
+Enter the value you want to insert: 
+2
+The size of the list is: 2
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+5
+Enter the index you want to insert: 
+2
+Enter the value you want to insert: 
+3
+The size of the list is: 3
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+7
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+4
+Enter the index you want to see: 
+1
+Enter the value you want to set: 
+8
+The old value at the index 1 is 2.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+7
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+6
+Enter the index you want to erase: 
+0
+The old value was: 1
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+7
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+3
+Enter the index you want to see: 
+1
+Value at the index 1 is 8.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+1
+The list is not empty.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+5
+Enter the index you want to insert: 
+6
+Enter the value you want to insert: 
+5
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+6
+Enter the index you want to erase: 
+7
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+3
+Enter the index you want to see: 
+7
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+2
+The size of the list is: 2
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+5
+Enter the index you want to insert: 
+3
+Enter the value you want to insert: 
+6
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+5
+Enter the index you want to insert: 
+2
+Enter the value you want to insert: 
+7
+The size of the list is: 3
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+7
+Index does not exist.
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+8
+   ____                     .______.                  ._. 
+  / ___\  ____    ____    __| _/\_ |__  ___.__.  ____ | | 
+ / /_/  >/  _ \  /  _ \  / __ |  | __ \<   |  |_/ __ \| | 
+ \___  /(  <_> )(  <_> )/ /_/ |  | \_\ \\___  |\  ___/ \| 
+/_____/  \____/  \____/ \____ |  |___  // ____| \___  >__ 
+        \______________/     \/      \/ \/          \/ \/ 
+                                                          
