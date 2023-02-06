@@ -25,6 +25,7 @@ int main()
     //  - name: name to create class
     int size, index, value, flag;
     int choice = 1;
+
     string name, line;
     
     string recFile = "./";

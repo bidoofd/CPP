@@ -77,25 +77,95 @@ int myListADT::set(int index, int object)
 //inserts a value at a specific index in the list
 int myListADT::insert(int index, int object)
 {
+    // Variables for counts
+    int countIterations = 0;
+    int countOperations = 0;
+
     //If the positional size is the same as max size, return -2
     if(this->pointer == this->length)
     {
+        // Adding 4
+        //  - 1 for accessing pointer length
+        //  - 1 for accessing length
+        //  - 1 for comparing pointer length and length
+        //  - 1 for returning a value
+        countOperations = countOperations + 4;
         return -2;
     }
     //If statement to see if index is valid
     if(index >= 0 && index <= this->pointer)
     {
+        // Adding 4
+        //  - 1 for accessing pointer length
+        //  - 1 for comparing index to 0
+        //  - 1 for comparing index to pointer length
+        //  - 1 for comparing both flags 
+        countOperations = countOperations + 4;
+
         //For loop to start at position of the pointer to shift every element to the right before insertion
         for(int a = this->pointer; a >= index; a--)
         {
-            cout << "index: " << a << endl;
             this->array[a] = this->array[a-1];
+            countIterations = countIterations + 1;
         }
+
+        // * FOR LOOP
+        // 1 for setting a equal to pointer length
+        // 1 for accessing pointer length
+        // 1 for comparing a to the index
+        // 1 for a--
+
+        // +4
+
+        // 1 for comparison
+        // 1 for a--
+
+        // +(2*n)
+
+        // 1 for subtracting
+
+        // +1
+        // * END FOR LOOP
+
+        // ** INSIDE FOR LOOP
+        // 1 for accessing array
+        // 1 for accessing array value
+        // 1 for accessing array again
+        // 1 for accessing array value before
+        // 1 for assigning current array value for previous
+
+        // +5
+
+        // 1 for adding to countIterations
+        // 1 for assigning new countIterations value
+
+        // +2
+        // ** END INSIDE FOR LOOP
+
+        //4 + (2 * n) + 1 + 5 + 2
+
+        countOperations = countOperations + 12 + (2 * this->pointer);
+
         // stores the object at inputted index
         this->array[index] = object;
         // adds 1 to positional pointer
         this->pointer = this->pointer + 1;
         //returns the pointer
+
+        // 1 for accessing array
+        // 1 for accessing array index
+        // 1 for assigining array index with the object
+
+        // 1 for accessing pointer
+        // 1 for accessing pointer again
+        // 1 for adding to pointer
+        // 1 for assigning old pointer with new
+
+        countOperations = countOperations + 7;
+
+        cout << "The number of iterations that happened in the loop is: " << countIterations << "." << endl;
+        cout << "The number of primitive operations that happened is: " << countInstructions << "." << endl;
+
         return this->pointer;
     }
 
@@ -105,6 +175,10 @@ int myListADT::insert(int index, int object)
 
 int myListADT::erase(int index)
 {
+    // Variables for counts
+    int countIterations = 0;
+    int countInstructions = 0;
+
     // If the pointer size is 0, then returns -2
     if(this->pointer == 0)
     {
