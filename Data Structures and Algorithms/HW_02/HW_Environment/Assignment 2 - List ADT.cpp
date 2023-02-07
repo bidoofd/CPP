@@ -47,6 +47,8 @@ int main()
       \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
                   \/            \/      \_/     \/      \/ \/)" << endl;
 
+    cout << "\n\n" << endl;
+
 
     // Creates size of list
     cout << "Enter the size of the array" << endl;
@@ -57,6 +59,7 @@ int main()
     cin.ignore(); //ignores newline character from line 52 "cin >> size"
     getline(cin, name);
 
+    // Creates object
     myListADT mLA(name, size);
 
     inFile.open(recFile);
@@ -77,7 +80,7 @@ int main()
     while(choice != 8)
     {
         // Menu Options
-        cout << "Enter which option you would like to choose: " << endl;
+        cout << "Enter which option you would like to choose: \n" << endl;
         cout << "1. isEmpty" << endl;
         cout << "2. size" << endl;
         cout << "3. at" << endl;
@@ -88,7 +91,8 @@ int main()
         cout << "8. Exit" << endl;
         cin >> choice;
 
-        mLA.writeOutput(inFile, "Enter which option you would like to choose: ");
+        cout << "\n\n" << endl;
+        mLA.writeOutput(inFile, "Enter which option you would like to choose: \n");
         mLA.writeOutput(inFile, "1. isEmpty");
         mLA.writeOutput(inFile, "2. size");
         mLA.writeOutput(inFile, "3. at");
@@ -146,6 +150,7 @@ int main()
                 mLA.writeOutput(inFile,"Value at the index " + to_string(index) + " is " + to_string(flag) + ".");
             }
         }
+        
         else if(choice == 4)
         {
             // Asks user for index
