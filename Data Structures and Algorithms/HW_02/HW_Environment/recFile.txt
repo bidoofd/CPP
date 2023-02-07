@@ -5,20 +5,9 @@
       \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
                   \/            \/      \_/     \/      \/ \/
 Enter the size of the array
-10
+5
 Enter the name of myListADT object
-ADT1
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
-1
-The list is empty.
+dhjalwkd
 Enter which option you would like to choose: 
 1. isEmpty
 2. size
@@ -43,17 +32,6 @@ Enter which option you would like to choose:
 6. erase
 7. printList
 8. Exit
-7
-Index does not exist.
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
 5
 Enter the index you want to insert: 
 1
@@ -84,23 +62,27 @@ Enter which option you would like to choose:
 6. erase
 7. printList
 8. Exit
-7
-Index does not exist.
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
+5
+Enter the index you want to insert: 
+3
+Enter the value you want to insert: 
 4
-Enter the index you want to see: 
-1
-Enter the value you want to set: 
-8
-The old value at the index 1 is 2.
+The size of the list is: 4
+Enter which option you would like to choose: 
+1. isEmpty
+2. size
+3. at
+4. set
+5. insert
+6. erase
+7. printList
+8. Exit
+5
+Enter the index you want to insert: 
+4
+Enter the value you want to insert: 
+5
+The size of the list is: 5
 Enter which option you would like to choose: 
 1. isEmpty
 2. size
@@ -123,8 +105,8 @@ Enter which option you would like to choose:
 8. Exit
 6
 Enter the index you want to erase: 
-0
-The old value was: 1
+2
+The old value was: 3
 Enter which option you would like to choose: 
 1. isEmpty
 2. size
@@ -135,45 +117,6 @@ Enter which option you would like to choose:
 7. printList
 8. Exit
 7
-Index does not exist.
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
-3
-Enter the index you want to see: 
-1
-Value at the index 1 is 8.
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
-1
-The list is not empty.
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
-5
-Enter the index you want to insert: 
-6
-Enter the value you want to insert: 
-5
 Index does not exist.
 Enter which option you would like to choose: 
 1. isEmpty
@@ -186,8 +129,8 @@ Enter which option you would like to choose:
 8. Exit
 6
 Enter the index you want to erase: 
-7
-Index does not exist.
+2
+The old value was: 4
 Enter which option you would like to choose: 
 1. isEmpty
 2. size
@@ -197,8 +140,6 @@ Enter which option you would like to choose:
 6. erase
 7. printList
 8. Exit
-3
-Enter the index you want to see: 
 7
 Index does not exist.
 Enter which option you would like to choose: 
@@ -211,48 +152,7 @@ Enter which option you would like to choose:
 7. printList
 8. Exit
 2
-The size of the list is: 2
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
-5
-Enter the index you want to insert: 
-3
-Enter the value you want to insert: 
-6
-Index does not exist.
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
-5
-Enter the index you want to insert: 
-2
-Enter the value you want to insert: 
-7
 The size of the list is: 3
-Enter which option you would like to choose: 
-1. isEmpty
-2. size
-3. at
-4. set
-5. insert
-6. erase
-7. printList
-8. Exit
-7
-Index does not exist.
 Enter which option you would like to choose: 
 1. isEmpty
 2. size
