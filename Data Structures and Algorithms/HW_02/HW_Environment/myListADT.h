@@ -17,8 +17,8 @@ class myListADT
         int size();
         int at(int i);
         int set(int i, int o);
-        int insert(int i, int o);
-        int erase(int i);
+        int insert(int i, int o, ofstream& file);
+        int erase(int i, ofstream& file);
         void printList(ofstream& file);
 
         void writeOutput(ofstream& file, string line);

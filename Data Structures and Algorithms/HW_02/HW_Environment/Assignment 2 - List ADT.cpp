@@ -259,7 +259,6 @@ int main()
 
             // Prints out array contents
             mLA.printList(inFile);
-            mLA.writeOutput(inFile, "Index does not exist.");
         }
     }
 

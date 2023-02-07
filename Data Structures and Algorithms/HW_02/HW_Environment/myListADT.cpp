@@ -79,7 +79,7 @@ int myListADT::set(int index, int object)
 
 
 //inserts a value at a specific index in the list
-int myListADT::insert(int index, int object)
+int myListADT::insert(int index, int object, ofstream& inFile)
 {
     cout << "\n\n" << endl;
     // Variables for counts
@@ -176,6 +176,9 @@ int myListADT::insert(int index, int object)
         cout << "The number of iterations that happened in the loop is: " << countIterations << "." << endl;
         cout << "The number of primitive operations that happened is: " << countOperations << "." << endl;
 
+        writeOutput(inFile, "The number of iterations that happened in the loop is: " + to_string(countIterations));
+        writeOutput(inFile, "The number of primitive operations that happened is: " + to_string(countOperations));
+
         return this->pointer;
     }
 
@@ -183,7 +186,7 @@ int myListADT::insert(int index, int object)
     return -1;
 }
 
-int myListADT::erase(int index)
+int myListADT::erase(int index, ofstream& inFile)
 {
     cout << "\n\n" << endl;
     // Variables for counts
@@ -283,6 +286,8 @@ int myListADT::erase(int index)
 
         cout << "The number of iterations that happened in the loop is: " << countIterations << "." << endl;
         cout << "The number of primitive operations that happened is: " << countOperations << "." << endl;
+        writeOutput(inFile, "The number of iterations that happened in the loop is: " + to_string(countIterations));
+        writeOutput(inFile, "The number of primitive operations that happened is: " + to_string(countOperations));
 
         return erasedNum;
     }
@@ -292,12 +297,13 @@ int myListADT::erase(int index)
     return -1;
 }
 
-void myListADT::printList(ofstream& file)
+void myListADT::printList(ofstream& inFile)
 {
     //prints out contents of list
     for(int a = 0; a < this->pointer; a++)
     {
         cout << "[" << a << "]" << ": " << this->array[a] << endl;
+        writeOutput(inFile, "[" + to_string(a) + "]" + ": " + to_string(this->array[a]));
     }
 }
 
