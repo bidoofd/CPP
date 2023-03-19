@@ -33,7 +33,7 @@ int main()
     //Enter filepath for the output file to record
     cout << "Enter the filename for output file: " << endl;
     getline(cin, line);
-    recFile.append(line);
+    recFile.append(line + ".txt");
     ofstream inFile(recFile);
 
     //clears contents of recording output file
@@ -199,7 +199,7 @@ int main()
             mLA.writeOutput(inFile, "Enter the value you want to insert: ");
             mLA.writeOutput(inFile, to_string(value));
             
-            flag = mLA.insert(index, value);
+            flag = mLA.insert(index, value, inFile);
 
             // If flag is -2, then the list is at max size
             if(flag == -2)
@@ -231,7 +231,7 @@ int main()
             mLA.writeOutput(inFile, "Enter the index you want to erase: ");
             mLA.writeOutput(inFile, to_string(index));
             
-            flag = mLA.erase(index);
+            flag = mLA.erase(index, inFile);
 
             // If flag is -2 then the list is empty
             if(flag == -2)
