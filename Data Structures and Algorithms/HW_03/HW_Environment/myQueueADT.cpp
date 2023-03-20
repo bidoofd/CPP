@@ -28,7 +28,7 @@ int myQueueADT::emptyFlag()
     }
     else
     {
-        return -1;
+        return 0;
     }
 }
 
@@ -40,7 +40,7 @@ int myQueueADT::fullFlag()
     }
     else
     {
-        return -1;
+        return 0;
     }
 }
 
