@@ -67,7 +67,7 @@ int main()
         getline(cin, stringSize);
         if(is_number(stringSize) == false)
         {
-            cout << "Not a number" << endl;
+            cout << "Not a valid size." << endl;
         }
         else if(is_number(stringSize) == true)
         {
@@ -116,7 +116,7 @@ int main()
             getline(cin, stringChoice);
             if(is_number(stringChoice) == false)
             {
-                cout << "Not a number" << endl;
+                cout << "Not a valid choice." << endl;
             }
             else if(is_number(stringChoice) == true)
             {
@@ -162,7 +162,7 @@ int main()
             }
             else if(flag == 0)
             {
-                cout << "The queue is not empty" << endl;
+                cout << "The queue is not full." << endl;
             }
         }
         else if(choice == 4)
@@ -186,7 +186,7 @@ int main()
                 getline(cin, stringValue);
                 if(is_number(stringValue) == false)
                 {
-                    cout << "Not a number" << endl;
+                    cout << "Not a valid number." << endl;
             }
                 else if(is_number(stringValue) == true)
                 {
