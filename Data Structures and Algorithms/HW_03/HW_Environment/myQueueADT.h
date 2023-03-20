@@ -43,7 +43,7 @@ class myQueueADT
         //      - @ Parameters
         //          - file: file name to be written
         //          - line: string to be written into the file
-        //  - setInstructions(): sets instructions back to 0
+        //  - resetInstructions(): sets instructions back to 0
 
         myQueueADT(string name, int size);
         int qSize();

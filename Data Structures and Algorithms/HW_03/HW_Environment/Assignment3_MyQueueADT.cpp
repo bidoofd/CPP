@@ -75,14 +75,18 @@ int main()
     // Creates size of list and loops until int is inputted
     while(boolFlag)
     {
+        //asks user for input
         cout << "Enter the size of the array" << endl;
         getline(cin, stringSize);
+        // uses is_number function to see if inputted value is a num
         if(is_number(stringSize) == false)
         {
             cout << "Not a valid size." << endl;
+            //if it isnt, then have the user re enter value until num
         }
         else if(is_number(stringSize) == true)
         {
+            //convert string to int and end loop
             size = stoi(stringSize);
             boolFlag = false;
         }
@@ -156,13 +160,14 @@ int main()
         {
             cout << "The MAX queue size is: " << mQA.qSize() << "." << endl;
             cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
-
             mQA.writeOutput(inFile, "The MAX queue size is: " + to_string(mQA.qSize()) + ".");
             mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
         }
         else if(choice == 2)
         {
             flag = mQA.emptyFlag();
+            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
+            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
             if(flag == 1)
             {
                 cout << "The queue is empty." << endl;
@@ -173,12 +178,12 @@ int main()
                 cout << "The queue is not empty." << endl;
                 mQA.writeOutput(inFile, "The queue is not empty.");
             }
-            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
-            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
         }
         else if(choice == 3)
         {
             flag = mQA.fullFlag();
+            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
+            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
             if(flag == 1)
             {
                 cout << "The queue is full." << endl;
@@ -189,12 +194,12 @@ int main()
                 cout << "The queue is not full." << endl;
                 mQA.writeOutput(inFile, "The queue is not full.");
             }
-            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
-            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
         }
         else if(choice == 4)
         {
             flag = mQA.firstInQ();
+            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
+            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
             if(flag != -1)
             {
                 cout << "The value at the beginning of the queue is: " << flag << "." << endl;
@@ -208,8 +213,6 @@ int main()
                 mQA.writeOutput(inFile, "There is not element at the beginning of the queue.");
                 mQA.writeOutput(inFile, "The queue is empty.");
             }
-            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
-            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
         }
         else if(choice == 5)
         {
@@ -230,6 +233,8 @@ int main()
                 }
             }
             flag = mQA.enqueue(value);
+            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
+            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
             if(flag == -1)
             {
                 cout << "The queue is full." << endl;
@@ -240,12 +245,12 @@ int main()
                 cout << "The number inserted into the queue is: " << flag << "." << endl;
                 mQA.writeOutput(inFile, "The number inserted into the queue is: " + to_string(flag) + ".");
             }
-            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
-            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
         }
         else if(choice == 6)
         {
             flag = mQA.dequeue();
+            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
+            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
             if(flag == -1)
             {
                 cout << "The queue is empty." << endl;
@@ -256,8 +261,6 @@ int main()
                 cout << "The number dequeued from the queue is: " << flag << "." << endl;
                 mQA.writeOutput(inFile, "The number dequeued from the queue is: " + to_string(flag) + ".");
             }
-            cout << "The number of instructions executed is " << mQA.getInstructions() << "." << endl;
-            mQA.writeOutput(inFile, "The number of instructions executed is " + to_string(mQA.getInstructions()) + ".");
         }
 
     }
