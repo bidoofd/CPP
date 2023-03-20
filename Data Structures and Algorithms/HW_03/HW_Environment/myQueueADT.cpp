@@ -18,8 +18,6 @@ myQueueADT::myQueueADT(string n, int s)
     // 1 instruction for each assignment (5)
     // 1 more instruction for setting the array size (1)
 
-    //cout << "The number of instructions executed is 11." << endl;
-
     this->instructions = 11;
 }
 
@@ -28,9 +26,9 @@ int myQueueADT::qSize()
     // 1 instruction for accessing size
     // 1 for returning
 
-    //cout << "The number of instructions executed is 2." << endl;
-
     //returns size of the queue
+    this->instructions = 2;
+
     return this->size;
 
 }
@@ -44,7 +42,8 @@ int myQueueADT::emptyFlag()
         // 1 for comparing values (3)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 6." << endl;
+        this->instructions = 6;
+
         return 1;
     }
     else
@@ -53,7 +52,8 @@ int myQueueADT::emptyFlag()
         // 1 for comparing values (3)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 6." << endl;
+        this->instructions = 6;
+
         return 0;
     }
 }
@@ -68,7 +68,8 @@ int myQueueADT::fullFlag()
         // 1 for evaluating values (2)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 6." << endl;
+        this->instructions = 6;
+
         return 1;
     }
     else
@@ -78,7 +79,7 @@ int myQueueADT::fullFlag()
         // 1 for evaluating values (2)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 6." << endl;
+        this->instructions = 6;
 
         return 0;
     }
@@ -94,7 +95,7 @@ int myQueueADT::firstInQ()
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 5." << endl;
+        this->instructions = 5;
 
         return this->array[this->front];
     }
@@ -104,7 +105,7 @@ int myQueueADT::firstInQ()
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 3." << endl;
+        this->instructions = 3;
 
         return -1;
     }
@@ -119,7 +120,7 @@ int myQueueADT::enqueue(int num)
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 3." << endl;
+        this->instructions = 3;
 
         return -1;
     }
@@ -136,7 +137,7 @@ int myQueueADT::enqueue(int num)
         // 1 for indexing array (1)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 10." << endl;
+        this->instructions = 10;
 
         return num;
     }
@@ -154,7 +155,7 @@ int myQueueADT::enqueue(int num)
         // 1 for operation evaluation (2)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 14." << endl;
+        this->instructions = 14;
 
         return num;
     }
@@ -170,7 +171,7 @@ int myQueueADT::dequeue()
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 3." << endl;
+        this->instructions = 3;
 
         return -1;
     }
@@ -187,7 +188,7 @@ int myQueueADT::dequeue()
         // 1 for indexing array (1)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 13." << endl;
+        this->instructions = 13;
 
         return temp;
     }
@@ -205,7 +206,7 @@ int myQueueADT::dequeue()
         // 1 for operation evaluation (2)
         // 1 for returning value (1)
 
-        //cout << "The number of instructions executed is 16." << endl;
+        this->instructions = 16;
 
         return temp;
     }
@@ -228,5 +229,5 @@ void myQueueADT::writeOutput(ofstream& recFile, string line)
 
     // 1 for writing to file operation
 
-    //cout << "The number of instructions executed is 1." << endl;
+    this->instructions = 1;
 }

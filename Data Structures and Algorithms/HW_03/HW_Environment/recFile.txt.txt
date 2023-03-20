@@ -8,6 +8,9 @@ Enter the size of the array
 5
 Enter the name of myQueueADT object
 ame
+
+
+
 Enter which option you would like to choose by number: 
 
 1. queueSize
@@ -16,7 +19,13 @@ Enter which option you would like to choose by number:
 4. firstInQueue
 5. enqueue
 6. dequeue
-1
+5
+Enter the number you want to add into the queue: 
+The number inserted into the queue is: 4.
+The number of instructions executed is 0.
+
+
+
 Enter which option you would like to choose by number: 
 
 1. queueSize
