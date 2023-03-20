@@ -20,27 +20,27 @@ int myQueueADT::qSize()
     return this->size;
 }
 
-int myQueueADT::emptyFlag()
+bool myQueueADT::emptyFlag()
 {
     if(this->front == -1 && this->rear == -1)
     {
-        return 1;
+        return true;
     }
     else
     {
-        return 0;
+        return false;
     }
 }
 
-int myQueueADT::fullFlag()
+bool myQueueADT::fullFlag()
 {
     if((this->rear + 1) % this->size == front)
     {
-        return 1;
+        return true;
     }
     else
     {
-        return 0;
+        return false;
     }
 }
 

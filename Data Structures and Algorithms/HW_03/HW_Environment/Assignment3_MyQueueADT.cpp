@@ -144,11 +144,11 @@ int main()
         else if(choice == 2)
         {
             flag = mQA.emptyFlag();
-            if(flag == 1)
+            if(flag == true)
             {
                 cout << "The queue is empty." << endl;
             }
-            else if(flag == 0)
+            else if(flag == false)
             {
                 cout << "The queue is not empty." << endl;
             }
@@ -156,11 +156,11 @@ int main()
         else if(choice == 3)
         {
             flag = mQA.fullFlag();
-            if(flag == 1)
+            if(flag == true)
             {
                 cout << "The queue is full." << endl;
             }
-            else if(flag == 0)
+            else if(flag == false)
             {
                 cout << "The queue is not empty" << endl;
             }

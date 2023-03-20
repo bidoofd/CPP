@@ -14,8 +14,8 @@ class myQueueADT
     public:
         myQueueADT(string name, int size);
         int qSize();
-        int emptyFlag();
-        int fullFlag();
+        bool emptyFlag();
+        bool fullFlag();
         int firstInQ();
         int enqueue(int num);
         int dequeue();
