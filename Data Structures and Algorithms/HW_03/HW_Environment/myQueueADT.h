@@ -20,6 +20,8 @@ class myQueueADT
         int rear, front;
         int size;
         int *array;
+
+        int instructions = 0;
     public:
         // Methods (int)
         //  - myQueueADT(): creates the myQueueADT object
@@ -48,6 +50,9 @@ class myQueueADT
         int firstInQ();
         int enqueue(int num);
         int dequeue();
+
+        int getInstructions();
+        void resetInstructions();
 
         void writeOutput(ofstream& file, string line);
 };

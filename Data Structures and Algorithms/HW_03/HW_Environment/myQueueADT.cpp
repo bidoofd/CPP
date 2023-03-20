@@ -16,9 +16,11 @@ myQueueADT::myQueueADT(string n, int s)
 
     // 1 instruction for each access the variable (5)
     // 1 instruction for each assignment (5)
-    // 1 more instruction for setting the array size
+    // 1 more instruction for setting the array size (1)
 
-    cout << "The number of instructions executed is 11." << endl;
+    //cout << "The number of instructions executed is 11." << endl;
+
+    this->instructions = 11;
 }
 
 int myQueueADT::qSize()
@@ -26,7 +28,7 @@ int myQueueADT::qSize()
     // 1 instruction for accessing size
     // 1 for returning
 
-    cout << "The number of instructions executed is 2." << endl;
+    //cout << "The number of instructions executed is 2." << endl;
 
     //returns size of the queue
     return this->size;
@@ -42,7 +44,7 @@ int myQueueADT::emptyFlag()
         // 1 for comparing values (3)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 6." << endl;
+        //cout << "The number of instructions executed is 6." << endl;
         return 1;
     }
     else
@@ -51,7 +53,7 @@ int myQueueADT::emptyFlag()
         // 1 for comparing values (3)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 6." << endl;
+        //cout << "The number of instructions executed is 6." << endl;
         return 0;
     }
 }
@@ -66,7 +68,7 @@ int myQueueADT::fullFlag()
         // 1 for evaluating values (2)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 6." << endl;
+        //cout << "The number of instructions executed is 6." << endl;
         return 1;
     }
     else
@@ -76,7 +78,7 @@ int myQueueADT::fullFlag()
         // 1 for evaluating values (2)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 6." << endl;
+        //cout << "The number of instructions executed is 6." << endl;
 
         return 0;
     }
@@ -92,7 +94,7 @@ int myQueueADT::firstInQ()
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 5." << endl;
+        //cout << "The number of instructions executed is 5." << endl;
 
         return this->array[this->front];
     }
@@ -102,7 +104,7 @@ int myQueueADT::firstInQ()
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 3." << endl;
+        //cout << "The number of instructions executed is 3." << endl;
 
         return -1;
     }
@@ -117,7 +119,7 @@ int myQueueADT::enqueue(int num)
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 3." << endl;
+        //cout << "The number of instructions executed is 3." << endl;
 
         return -1;
     }
@@ -134,7 +136,7 @@ int myQueueADT::enqueue(int num)
         // 1 for indexing array (1)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 10." << endl;
+        //cout << "The number of instructions executed is 10." << endl;
 
         return num;
     }
@@ -152,7 +154,7 @@ int myQueueADT::enqueue(int num)
         // 1 for operation evaluation (2)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 14." << endl;
+        //cout << "The number of instructions executed is 14." << endl;
 
         return num;
     }
@@ -168,7 +170,8 @@ int myQueueADT::dequeue()
         // 1 for comparison (1)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 3." << endl;
+        //cout << "The number of instructions executed is 3." << endl;
+
         return -1;
     }
     // Checks to see if there is only 1 value. If there is reset the queue and return dequeued value
@@ -184,7 +187,7 @@ int myQueueADT::dequeue()
         // 1 for indexing array (1)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 13." << endl;
+        //cout << "The number of instructions executed is 13." << endl;
 
         return temp;
     }
@@ -202,10 +205,20 @@ int myQueueADT::dequeue()
         // 1 for operation evaluation (2)
         // 1 for returning value (1)
 
-        cout << "The number of instructions executed is 16." << endl;
+        //cout << "The number of instructions executed is 16." << endl;
 
         return temp;
     }
+}
+
+int myQueueADT::getInstructions()
+{
+    return this->instructions;
+}
+
+void myQueueADT::resetInstructions()
+{
+    this->instructions = 0;
 }
 
 void myQueueADT::writeOutput(ofstream& recFile, string line)
@@ -215,5 +228,5 @@ void myQueueADT::writeOutput(ofstream& recFile, string line)
 
     // 1 for writing to file operation
 
-    cout << "The number of instructions executed is 1." << endl;
+    //cout << "The number of instructions executed is 1." << endl;
 }
