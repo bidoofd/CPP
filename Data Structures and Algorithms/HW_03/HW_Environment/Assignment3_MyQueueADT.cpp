@@ -1,7 +1,7 @@
 // Course #: ENGR-3440-A
 // Semester: Spring 2023
 // Name: Jason Tran Do
-// Assignment #: 2. Queue ADT
+// Assignment #: 3. Queue ADT
 
 // Note that the use of cin and getline are being used differently
 //  - cin is used for ints and number values
@@ -13,6 +13,13 @@
 #include "myQueueADT.h"
 
 using namespace std;
+
+bool is_number(const std::string& s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && std::isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
+}
 
 int main()
 {
@@ -26,7 +33,9 @@ int main()
     int size, index, value, flag;
     int choice = 1;
 
-    string name, line;
+    string name, line, stringSize;
+
+    bool boolFlag = true;
     
     string recFile = "./";
 
@@ -51,8 +60,21 @@ int main()
 
 
     // Creates size of list
-    cout << "Enter the size of the array" << endl;
-    cin >> size;
+    while(boolFlag)
+    {
+        cout << "Enter the size of the array" << endl;
+        getline(cin, stringSize);
+        if(is_number(stringSize) == false)
+        {
+            cout << "Not a number" << endl;
+        }
+        else if(is_number(stringSize) == true)
+        {
+            size = stoi(stringSize);
+            boolFlag == false;
+            break;
+        }
+    }
 
     // Entering name to create object
     cout << "Enter the name of myQueueADT object" << endl;
@@ -76,7 +98,7 @@ int main()
     mQA.writeOutput(inFile, "Enter the name of myQueueADT object");
     mQA.writeOutput(inFile, name);
 
-    while(choice != 8)
+    while(choice != 7)
     {
         // Menu Options
         cout << "Enter which option you would like to choose by number: \n" << endl;
@@ -86,6 +108,7 @@ int main()
         cout << "4. firstInQueue" << endl;
         cout << "5. enqueue" << endl;
         cout << "6. dequeue" << endl;
+        cout << "7. Exit" << endl;
 
         cin >> choice;
 
@@ -138,6 +161,32 @@ int main()
             {
                 cout << "There is not element at the beginning of the queue." << endl;
                 cout << "The queue is empty." << endl;
+            }
+        }
+        else if(choice == 5)
+        {
+            cout << "Enter the number you want to add into the queue: " << endl;
+            cin >> value;
+            flag = mQA.enqueue(value);
+            if(flag == -1)
+            {
+                cout << "The queue is full." << endl;
+            }
+            else
+            {
+                cout << "The number inserted into the queue is: " << flag << "." << endl;
+            }
+        }
+        else if(choice == 6)
+        {
+            flag = mQA.dequeue();
+            if(flag == -1)
+            {
+                cout << "The queue is empty." << endl;
+            }
+            else
+            {
+                cout << "The number dequeued from the queue is: " << flag << "." << endl;
             }
         }
 

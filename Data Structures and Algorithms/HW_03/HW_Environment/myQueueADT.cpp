@@ -55,8 +55,51 @@ int myQueueADT::firstInQ()
         return -1;
     }
 }
-        //int firstInQ();
-        //int enqueue(int num);
-        //int dequeue();
 
-        //void writeOutput(ofstream& file, string line);
+int myQueueADT::enqueue(int num)
+{
+    if(fullFlag() == 1)
+    {
+        return -1;
+    }
+    else if(emptyFlag() == 1)
+    {
+        this->front = 0;
+        this->rear = 0;
+        this->array[rear] = num;
+        return num;
+    }
+    else
+    {
+        this->rear = (this->rear + 1) % this->size;
+        this->array[rear] = num;
+        return num;
+    }
+}
+
+int myQueueADT::dequeue()
+{
+    if(emptyFlag() == 1)
+    {
+        return -1;
+    }
+    else if(this->front == this->rear)
+    {
+        int temp = this->array[this->front];
+        this->front = -1;
+        this->rear = -1;
+        return temp;
+    }
+    else
+    {
+        int temp = this->array[this->front];
+        this->front = (this->front + 1) % this->size;
+        return temp;
+    }
+}
+
+void myQueueADT::writeOutput(ofstream& recFile, string line)
+{
+    //writes to the output file and ends with a newline
+    recFile << line << endl;
+}

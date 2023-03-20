@@ -10,7 +10,7 @@ class myQueueADT
         string name;
         int rear, front;
         int size;
-        int *array = new int[size];
+        int *array;
     public:
         myQueueADT(string name, int size);
         int qSize();
