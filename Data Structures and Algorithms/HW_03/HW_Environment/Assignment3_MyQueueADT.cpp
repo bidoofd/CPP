@@ -14,6 +14,7 @@
 
 using namespace std;
 
+//checks to see if a string is fully a number or not
 bool is_number(const std::string& s)
 {
     std::string::const_iterator it = s.begin();
@@ -33,7 +34,7 @@ int main()
     int size, index, value, flag;
     int choice = 1;
 
-    string name, line, stringSize;
+    string name, line, stringSize, stringChoice, stringValue;
 
     bool boolFlag = true;
     
@@ -71,8 +72,7 @@ int main()
         else if(is_number(stringSize) == true)
         {
             size = stoi(stringSize);
-            boolFlag == false;
-            break;
+            boolFlag = false;
         }
     }
 
@@ -100,6 +100,7 @@ int main()
 
     while(choice != 7)
     {
+        boolFlag = true;
         // Menu Options
         cout << "Enter which option you would like to choose by number: \n" << endl;
         cout << "1. queueSize" << endl;
@@ -110,7 +111,21 @@ int main()
         cout << "6. dequeue" << endl;
         cout << "7. Exit" << endl;
 
-        cin >> choice;
+        while(boolFlag)
+        {
+            getline(cin, stringChoice);
+            if(is_number(stringChoice) == false)
+            {
+                cout << "Not a number" << endl;
+            }
+            else if(is_number(stringChoice) == true)
+            {
+                choice = stoi(stringChoice);
+                boolFlag = false;
+            }
+        }
+
+        boolFlag = true;
 
         cout << "\n\n" << endl;
         mQA.writeOutput(inFile, "Enter which option you would like to choose by number: \n");
@@ -166,7 +181,20 @@ int main()
         else if(choice == 5)
         {
             cout << "Enter the number you want to add into the queue: " << endl;
-            cin >> value;
+            while(boolFlag)
+            {
+                getline(cin, stringValue);
+                if(is_number(stringValue) == false)
+                {
+                    cout << "Not a number" << endl;
+            }
+                else if(is_number(stringValue) == true)
+                {
+                    value = stoi(stringValue);
+                    boolFlag = false;
+                    break;
+                }
+            }
             flag = mQA.enqueue(value);
             if(flag == -1)
             {
@@ -192,5 +220,21 @@ int main()
 
     }
 
+    cout << R"(   ____                     .______.                  ._. 
+  / ___\  ____    ____    __| _/\_ |__  ___.__.  ____ | | 
+ / /_/  >/  _ \  /  _ \  / __ |  | __ \<   |  |_/ __ \| | 
+ \___  /(  <_> )(  <_> )/ /_/ |  | \_\ \\___  |\  ___/ \| 
+/_____/  \____/  \____/ \____ |  |___  // ____| \___  >__ 
+        \______________/     \/      \/ \/          \/ \/ 
+                                                          )" << endl;
+
+
+    mQA.writeOutput(inFile, R"(   ____                     .______.                  ._. 
+  / ___\  ____    ____    __| _/\_ |__  ___.__.  ____ | | 
+ / /_/  >/  _ \  /  _ \  / __ |  | __ \<   |  |_/ __ \| | 
+ \___  /(  <_> )(  <_> )/ /_/ |  | \_\ \\___  |\  ___/ \| 
+/_____/  \____/  \____/ \____ |  |___  // ____| \___  >__ 
+        \______________/     \/      \/ \/          \/ \/ 
+                                                          )");
     system("pause");
 }
