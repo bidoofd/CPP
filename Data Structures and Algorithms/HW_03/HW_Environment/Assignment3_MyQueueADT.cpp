@@ -15,6 +15,7 @@
 using namespace std;
 
 //checks to see if a string is fully a number or not
+//sources from: https://stackoverflow.com/a/4654718
 bool is_number(const std::string& s)
 {
     std::string::const_iterator it = s.begin();
@@ -24,13 +25,24 @@ bool is_number(const std::string& s)
 
 int main()
 {
-    // Variables
-    //  - size: creates size of list for ADT class
+    // Variables (int)
+    //  - size: creates size of queue for ADT class
     //  - index: inputted index value
     //  - value: inputted user value
     //  - flag: flag for errors
     //  - choice: Menu selection
+
+    // Variables (string)
     //  - name: name to create class
+    //  - line: used to read string and changes for input file
+    //  - stringSize: size of the array in string form
+    //  - stringChoice: choice num value in the menu in string form
+    //  - stringValue: num value in string form
+    //  - recFile: start of file path
+
+    // Variables (bool)
+    // boolFlag: loop flag to check to see if input is a num
+
     int size, index, value, flag;
     int choice = 1;
 
@@ -60,7 +72,7 @@ int main()
     cout << "\n\n" << endl;
 
 
-    // Creates size of list
+    // Creates size of list and loops until int is inputted
     while(boolFlag)
     {
         cout << "Enter the size of the array" << endl;
