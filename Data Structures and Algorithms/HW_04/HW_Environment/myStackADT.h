@@ -11,6 +11,7 @@ class myStackADT
         string name;
         int topPointer;
         int maxSize;
+        int instructions;
         int *stack = new int[maxSize];
     public:
 
@@ -20,6 +21,11 @@ class myStackADT
         int top();
         int push(int value);
         int pop();
+
+        int getInstructions();
+        void resetInstructions();
+
+        void writeOutput(ofstream& file, string line);
 };
 
 #endif

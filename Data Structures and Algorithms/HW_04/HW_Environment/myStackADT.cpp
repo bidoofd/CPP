@@ -31,7 +31,14 @@ bool myStackADT::isEmpty()
 
 int myStackADT::top()
 {
-    return this->topPointer;
+    if(isEmpty() == true)
+    {
+        return -1;
+    }
+    else
+    {
+        return this->topPointer;
+    }
 }
 
 int myStackADT::push(int value)
@@ -61,4 +68,24 @@ int myStackADT::pop()
         this->topPointer = this->topPointer - 1;
         return temp;
     }
+}
+
+int myStackADT::getInstructions()
+{
+    return this->instructions;
+}
+
+void myStackADT::resetInstructions()
+{
+    this->instructions = 0;
+}
+
+void myStackADT::writeOutput(ofstream& recFile, string line)
+{
+    //writes to the output file and ends with a newline
+    recFile << line << endl;
+
+    // 1 for writing to file operation
+
+    this->instructions = 1;
 }
