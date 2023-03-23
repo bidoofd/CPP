@@ -19,6 +19,11 @@ int myStackADT::size()
     return this->maxSize;
 }
 
+int myStackADT::stackSize()
+{
+    return this->topPointer + 1;
+}
+
 bool myStackADT::isEmpty()
 {
     if(this->topPointer == -1)

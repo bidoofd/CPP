@@ -31,18 +31,6 @@ Enter which option you would like to choose by number:
 3. top
 4. push
 5. pop
-3
-The value at the top of the stack is: 1
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
 4
 Enter the number you want to add into the stack: 
 Successfully pushed the value 2 to the stack.
@@ -69,45 +57,9 @@ Enter which option you would like to choose by number:
 3. top
 4. push
 5. pop
-4
-Enter the number you want to add into the stack: 
-Successfully pushed the value 4 to the stack.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-3
-The value at the top of the stack is: 4
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-5
-The value popped from the stack is: 4.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-3
-The value at the top of the stack is: 3
+1
+The size of the stack is: 10
+The size of the stack is: 3
 
 
 
@@ -130,44 +82,9 @@ Enter which option you would like to choose by number:
 3. top
 4. push
 5. pop
-3
-The value at the top of the stack is: 2
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-5
-The value popped from the stack is: 2.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-3
-The value at the top of the stack is: 1
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-5
-The value popped from the stack is: 1.
+1
+The size of the stack is: 10
+The size of the stack is: 2
 
 
 

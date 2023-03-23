@@ -17,6 +17,7 @@ class myStackADT
 
         myStackADT(string name, int size);
         int size();
+        int stackSize();
         bool isEmpty();
         int top();
         int push(int value);

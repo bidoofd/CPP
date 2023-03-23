@@ -156,8 +156,10 @@ int main()
 
         if(choice == 1)
         {
-            cout << "The size of the stack is: " << mSA.size() << endl;
+            cout << "The MAX size of the stack is: " << mSA.size() << endl;
+            cout << "The size of the CURRENT stack is: " << mSA.stackSize() << endl;
             mSA.writeOutput(inFile, "The size of the stack is: " + to_string(mSA.size()));
+            mSA.writeOutput(inFile, "The size of the stack is: " + to_string(mSA.stackSize()));
         }
         else if(choice == 2)
         {
