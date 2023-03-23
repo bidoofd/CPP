@@ -9,7 +9,9 @@ using namespace std;
 myStackADT::myStackADT(string n, int s)
 {
     this->name = n;
-    this->stack = new int[s];
+    this->maxSize = s;
+    this->stack = new int[this->maxSize];
+    this->topPointer = -1;
 }
 
 int myStackADT::size()
@@ -37,7 +39,7 @@ int myStackADT::top()
     }
     else
     {
-        return this->topPointer;
+        return this->stack[this->topPointer];
     }
 }
 
