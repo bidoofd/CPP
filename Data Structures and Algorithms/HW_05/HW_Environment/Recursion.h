@@ -15,9 +15,10 @@ class recursion
     public:
         recursion(string name);
         void reverseIterative(string fileName);
-        void reverseRrecursive();
+        string reverseRrecursive(ifstream& file);
         void reverseSimulatedRecursion();
 
+        void printFile(string fileName);
         int countLine(string fileName);
         void writeOutput(ofstream& file, string line);
 };

@@ -64,6 +64,17 @@ void recursion::reverseIterative(string fname)
 
 }
 
+string recursion::reverseRrecursive(ifstream& file)
+{
+    if(file.eof())
+    {
+        return "";
+    }
+    string line;
+    getline(file, line);
+    return line + "\n" + reverseRrecursive(file);
+}
+
 //counts the line in the file to set size for array
 int recursion::countLine(string fname)
 {
