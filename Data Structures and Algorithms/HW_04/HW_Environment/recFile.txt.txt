@@ -5,86 +5,9 @@
       \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
                   \/            \/      \_/     \/      \/ \/
 Enter the size of the array
-10
+1
 Enter the name of myQueueADT object
 ame
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-4
-Enter the number you want to add into the stack: 
-Successfully pushed the value 1 to the stack.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-4
-Enter the number you want to add into the stack: 
-Successfully pushed the value 2 to the stack.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-4
-Enter the number you want to add into the stack: 
-Successfully pushed the value 3 to the stack.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-1
-The size of the stack is: 10
-The size of the stack is: 3
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-5
-The value popped from the stack is: 3.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-1
-The size of the stack is: 10
-The size of the stack is: 2
 
 
 

@@ -12,7 +12,7 @@ myStackADT::myStackADT(string n, int s)
 
     this->name = n;
     this->maxSize = s;
-    this->stack = new int[this->maxSize];
+    this->stack = new int[this->maxSize - 1];
     this->topPointer = -1;
 
     // 1 instruction for each access the variable (5)
@@ -96,7 +96,7 @@ int myStackADT::top()
 
 int myStackADT::push(int value)
 {
-    if(this->topPointer == this->maxSize)
+    if(this->topPointer == this->maxSize - 1)
     {
         // 1 for accessing variables (2)
         // 1 for comparing values (1)

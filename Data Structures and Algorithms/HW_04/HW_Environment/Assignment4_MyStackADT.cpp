@@ -88,7 +88,15 @@ int main()
         {
             //convert string to int and end loop
             size = stoi(stringSize);
-            boolFlag = false;
+            //if to check if the value is is greater than 0 for invalid size
+            if(size > 0)
+            {
+                cout << "Not a valid size." << endl;
+            }
+            else
+            {
+                boolFlag = false;
+            }
         }
     }
 
