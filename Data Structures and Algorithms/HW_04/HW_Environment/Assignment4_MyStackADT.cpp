@@ -102,6 +102,7 @@ int main()
 
     inFile.open(recFile);
 
+    // Objects writes to recording file
     mSA.writeOutput(inFile, R"(                     .__.                                 ._. 
     __  _  __  ____  |  |    ____   ____    _____    ____ | | 
     \ \/ \/ /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \| | 
@@ -154,12 +155,18 @@ int main()
         mSA.writeOutput(inFile, "5. pop");
         mSA.writeOutput(inFile, to_string(choice));
 
+
+        //The if menu and print operations of flags
+        // -Flag variable is being used to determine the operation used
         if(choice == 1)
         {
             cout << "The MAX size of the stack is: " << mSA.size() << endl;
             cout << "The size of the CURRENT stack is: " << mSA.stackSize() << endl;
+            cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
+
             mSA.writeOutput(inFile, "The size of the stack is: " + to_string(mSA.size()));
             mSA.writeOutput(inFile, "The size of the stack is: " + to_string(mSA.stackSize()));
+            mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
         }
         else if(choice == 2)
         {
@@ -167,12 +174,16 @@ int main()
             if(flag == true)
             {
                 cout << "The stack is empty." << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "The stack is empty.");
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
             else if(flag == false)
             {
                 cout << "The stack is not empty." << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "The stack is not empty.");
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
         }
         else if(choice == 3)
@@ -181,12 +192,16 @@ int main()
             if(flag == -1)
             {
                 cout << "The stack is empty." << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "The stack is empty.");
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
             else
             {
                 cout << "The value at the top of the stack is: " << flag << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "The value at the top of the stack is: " + to_string(flag));
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
         }
         else if(choice == 4)
@@ -211,12 +226,16 @@ int main()
             if(flag == 0)
             {
                 cout << "The stack is full." << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "The stack is full.");
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
             else
             {
                 cout << "Successfully pushed the value " << flag << " to the stack." << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "Successfully pushed the value " + to_string(flag) + " to the stack.");
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
         }
         else if(choice == 5)
@@ -225,12 +244,16 @@ int main()
             if(flag == -1)
             {
                 cout << "The stack is empty." << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "The stack is empty.");
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
             else
             {
                 cout << "The value popped from the stack is: " << flag << "." << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
                 mSA.writeOutput(inFile, "The value popped from the stack is: " + to_string(flag) + ".");
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
             }
         }
     }

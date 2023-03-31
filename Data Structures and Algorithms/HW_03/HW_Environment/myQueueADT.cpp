@@ -38,13 +38,6 @@ bool myQueueADT::emptyFlag()
     // If the front and rear position are equal to -1, then the queue is empty
     if(this->front == -1 && this->rear == -1)
     {
-<<<<<<< HEAD
-        return true;
-    }
-    else
-    {
-        return false;
-=======
         // 1 for accessing variables (2)
         // 1 for comparing values (3)
         // 1 for returning value (1)
@@ -62,7 +55,6 @@ bool myQueueADT::emptyFlag()
         this->instructions = 6;
 
         return 0;
->>>>>>> 9a344e2d1c5062f6f67ff88003016900304f5e6b
     }
 }
 
@@ -71,13 +63,6 @@ bool myQueueADT::fullFlag()
     // Checks to see if front is next to the rear, then the queue is full
     if((this->rear + 1) % this->size == front)
     {
-<<<<<<< HEAD
-        return true;
-    }
-    else
-    {
-        return false;
-=======
         // 1 for accessing variables (2)
         // 1 for comparing values (1)
         // 1 for evaluating values (2)
@@ -97,7 +82,6 @@ bool myQueueADT::fullFlag()
         this->instructions = 6;
 
         return 0;
->>>>>>> 9a344e2d1c5062f6f67ff88003016900304f5e6b
     }
 }
 
