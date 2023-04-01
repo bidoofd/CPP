@@ -106,20 +106,20 @@ int main()
     getline(cin, name);
 
     // Creates object
-    recursion mSA(name, size);
+    //recursion mSA(name, size);
 
     inFile.open(recFile);
 
     // Objects writes to recording file
-    mSA.writeOutput(inFile, R"(                     .__.                                 ._. 
+    /*mSA.writeOutput(inFile, R"(                     .__.                                 ._. 
     __  _  __  ____  |  |    ____   ____    _____    ____ | | 
     \ \/ \/ /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \| | 
      \     / \  ___/ |  |__\  \___(  <_> )|  Y Y  \\  ___/ \| 
       \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
-                  \/            \/      \_/     \/      \/ \/)");
+                  \/            \/      \_/     \/      \/ \/)");*/
 
-    mSA.writeOutput(inFile, "Enter the size of the array");
-    mSA.writeOutput(inFile, to_string(size));
-    mSA.writeOutput(inFile, "Enter the name of myQueueADT object");
-    mSA.writeOutput(inFile, name);
+    //mSA.writeOutput(inFile, "Enter the size of the array");
+    //mSA.writeOutput(inFile, to_string(size));
+    //mSA.writeOutput(inFile, "Enter the name of myQueueADT object");
+    //mSA.writeOutput(inFile, name);
 }

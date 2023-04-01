@@ -5,11 +5,12 @@
 
 using namespace std;
 
-bool is_number(const std::string& s)
+bool is_number (string line)
 {
-    std::string::const_iterator it = s.begin();
-    while (it != s.end() && std::isdigit(*it)) ++it;
-    return !s.empty() && it == s.end();
+    if (isdigit(atoi(line.c_str())))
+        return true;
+
+    return false;
 }
 
 //sets up myStackADT class
