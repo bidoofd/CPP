@@ -29,30 +29,6 @@ Enter which option you would like to choose by number:
 3. top
 4. push
 5. pop
-2
-The stack is empty.
-The number of instructions executed is 1.
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
-1
-
-
-
-Enter which option you would like to choose by number: 
-
-1. size
-2. isEmpty
-3. top
-4. push
-5. pop
 4
 Enter the number you want to add into the stack: 
 Successfully pushed the value 1 to the stack.
@@ -67,8 +43,8 @@ Enter which option you would like to choose by number:
 3. top
 4. push
 5. pop
-5
-The value popped from the stack is: 1.
+1
+The current size of the stack is: 1
 The number of instructions executed is 1.
 
 
@@ -108,8 +84,34 @@ Enter which option you would like to choose by number:
 3. top
 4. push
 5. pop
+1
+The current size of the stack is: 3
+The number of instructions executed is 1.
+
+
+
+Enter which option you would like to choose by number: 
+
+1. size
+2. isEmpty
+3. top
+4. push
+5. pop
 3
 The value at the top of the stack is: 3
+The number of instructions executed is 1.
+
+
+
+Enter which option you would like to choose by number: 
+
+1. size
+2. isEmpty
+3. top
+4. push
+5. pop
+2
+The stack is not empty.
 The number of instructions executed is 1.
 
 
@@ -136,6 +138,19 @@ Enter which option you would like to choose by number:
 5. pop
 5
 The value popped from the stack is: 2.
+The number of instructions executed is 1.
+
+
+
+Enter which option you would like to choose by number: 
+
+1. size
+2. isEmpty
+3. top
+4. push
+5. pop
+5
+The value popped from the stack is: 1.
 The number of instructions executed is 1.
 
 

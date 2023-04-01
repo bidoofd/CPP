@@ -12,30 +12,47 @@ myStackADT::myStackADT(string n)
     this->name = n;
     this->topPointer = NULL;
 
-    // 1 instruction for each access the variable (5)
-    // 1 instruction for each assignment (4)
-    // 1 more instruction for setting the array size (1)
-    // 1 for accesing the array (1)
+    // 1 instruction for each access the variable (2)
+    // 1 instruction for each assignment (2)
 
-    this->instructions = 11;
+    this->instructions = 4;
 }
 
 int myStackADT::size()
 {
     Node *temp;
     int count = 0;
+    int extraInstructions = 0;
     if(isEmpty())
     {
+        // 1 instruction for each assignment (3)
+        // 1 for creating temp node (1)
+        // 1 for empty operation (1)
+
+        this->instructions = 5;
         return -1;
     }
     else
     {
         temp = this->topPointer;
+        extraInstructions = extraInstructions + 2;
         while(temp != NULL)
         {
             count++;
+            temp = temp->next;
+            extraInstructions = extraInstructions + 5;
         }
+        extraInstructions++;
     }
+
+    // 1 instruction for each assignment (4 + x)
+    // 1 for creating temp node (1)
+    // 1 for empty operation (1)
+    // 1 for comparison (x)
+    // 1 for accessing variables (1 + x)
+    // 1 for adding to count and assigning (x)
+
+    this->instructions = 7 + extraInstructions;
     return count;
 }
 
@@ -69,8 +86,9 @@ int myStackADT::top()
     {
         // 1 for comparing values (1)
         // 1 for returning value (1)
+        // 1 for empty function
 
-        this->instructions = 2;
+        this->instructions = 3;
 
         return -1;
     }
@@ -92,6 +110,11 @@ int myStackADT::push(int value)
     Node* temp = new Node(value);
     if(!temp)
     {
+        // 1 for creating new node (1)
+        // 1 for comparing values (1)
+        // 1 for returning value (1)
+
+        this->instructions = 3;
         return -1;
     }
     else
@@ -99,6 +122,14 @@ int myStackADT::push(int value)
         temp->data = value;
         temp->next = this->topPointer;
         this->topPointer = temp;
+
+        // 1 for creating new node (1)
+        // 1 for comparing values (1)
+        // 1 for returning value (1)
+        // 1 for accessing variables (4)
+        // 1 for assigning variables (3)
+
+        this->instructions = 10;
         return this->topPointer->data;
     }
 }
@@ -109,8 +140,9 @@ int myStackADT::pop()
     {
         // 1 for comparing values (1)
         // 1 for returning value (1)
+        // 1 for function empty
 
-        this->instructions = 2;
+        this->instructions = 3;
 
         return -1;
     }
@@ -120,7 +152,18 @@ int myStackADT::pop()
         temp = this->topPointer;
         int tempValue = temp->data;
         this->topPointer = this->topPointer->next;
+
+        // deletes node and frees up memory
         free(temp);
+
+        // 1 for creating new node (1)
+        // 1 for comparing values (1)
+        // 1 for returning value (1)
+        // 1 for accessing variables (4)
+        // 1 for assigning variables (3)
+        // 1 fpr free operation (1)
+
+        this->instructions = 11;
         return tempValue;
     }
 }
