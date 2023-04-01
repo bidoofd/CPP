@@ -4,6 +4,19 @@
 
 using namespace std;
 
+class Node
+{
+    public:
+        int data;
+        Node* next;
+
+        Node(int value)
+        {
+            this->data = value;
+            this->next = NULL;
+        }
+};
+
 class myStackADT
 {
     private:
@@ -15,12 +28,10 @@ class myStackADT
 
         // Variables (string)
         //  - name: name for object
-
         string name;
-        int topPointer;
-        int maxSize;
         int instructions;
-        int *stack = new int[maxSize];
+
+        Node* topPointer;
     public:
         // Methods (int)
         //  - myStackADT(): creates the myQueueADT object
@@ -44,9 +55,8 @@ class myStackADT
         //          - file: file name to be written
         //          - line: string to be written into the file
 
-        myStackADT(string name, int size);
+        myStackADT(string name);
         int size();
-        int stackSize();
         bool isEmpty();
         int top();
         int push(int value);

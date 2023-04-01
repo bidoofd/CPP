@@ -71,42 +71,13 @@ int main()
 
     cout << "\n\n" << endl;
 
-
-    // Creates size of list and loops until int is inputted
-    while(boolFlag)
-    {
-        //asks user for input
-        cout << "Enter the size of the stack" << endl;
-        getline(cin, stringSize);
-        // uses is_number function to see if inputted value is a num
-        if(is_number(stringSize) == false)
-        {
-            cout << "Not a valid size." << endl;
-            //if it isnt, then have the user re enter value until num
-        }
-        else if(is_number(stringSize) == true)
-        {
-            //convert string to int and end loop
-            size = stoi(stringSize);
-            //if to check if the value is is greater than 0 for invalid size
-            if(size > 0)
-            {
-                cout << "Not a valid size." << endl;
-            }
-            else
-            {
-                boolFlag = false;
-            }
-        }
-    }
-
     // Entering name to create object
     cout << "Enter the name of myStackADT object" << endl;
     cin.ignore(); //ignores newline character from line 52 "cin >> size"
     getline(cin, name);
 
     // Creates object
-    myStackADT mSA(name, size);
+    myStackADT mSA(name);
 
     inFile.open(recFile);
 
@@ -168,13 +139,19 @@ int main()
         // -Flag variable is being used to determine the operation used
         if(choice == 1)
         {
-            cout << "The MAX size of the stack is: " << mSA.size() << endl;
-            cout << "The size of the CURRENT stack is: " << mSA.stackSize() << endl;
-            cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
+            flag = mSA.size();
+            if(flag == -1)
+            {
+                cout << "The stack is empty." << endl;
+            }
+            else
+            {
+                cout << "The current size of the stack is: " << mSA.size() << endl;
+                cout << "The number of instructions executed is " << mSA.getInstructions() << "." << endl;
 
-            mSA.writeOutput(inFile, "The size of the stack is: " + to_string(mSA.size()));
-            mSA.writeOutput(inFile, "The size of the stack is: " + to_string(mSA.stackSize()));
-            mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
+                mSA.writeOutput(inFile, "The current size of the stack is: " + to_string(mSA.size()));
+                mSA.writeOutput(inFile, "The number of instructions executed is " + to_string(mSA.getInstructions()) + ".");
+            }   
         }
         else if(choice == 2)
         {

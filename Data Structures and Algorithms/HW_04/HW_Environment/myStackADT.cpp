@@ -6,14 +6,11 @@
 using namespace std;
 
 //sets up myStackADT class
-myStackADT::myStackADT(string n, int s)
+myStackADT::myStackADT(string n)
 {
     //sets up name, stack, maxSize, and the topPointer values
-
     this->name = n;
-    this->maxSize = s;
-    this->stack = new int[this->maxSize - 1];
-    this->topPointer = -1;
+    this->topPointer = NULL;
 
     // 1 instruction for each access the variable (5)
     // 1 instruction for each assignment (4)
@@ -25,30 +22,26 @@ myStackADT::myStackADT(string n, int s)
 
 int myStackADT::size()
 {
-    // 1 instruction for accessing size
-    // 1 for returning
-
-    //returns size of the queue
-    this->instructions = 2;
-
-    return this->maxSize;
-}
-
-int myStackADT::stackSize()
-{
-    // 1 instruction for accessing topPointer
-    // 1 for adding
-    // 1 for returning
-
-    //returns size of the queue
-    this->instructions = 3;
-
-    return this->topPointer + 1;
+    Node *temp;
+    int count = 0;
+    if(isEmpty())
+    {
+        return -1;
+    }
+    else
+    {
+        temp = this->topPointer;
+        while(temp != NULL)
+        {
+            count++;
+        }
+    }
+    return count;
 }
 
 bool myStackADT::isEmpty()
 {
-    if(this->topPointer == -1)
+    if(this->topPointer == NULL)
     {
         // 1 for accessing variables (1)
         // 1 for comparing values (1)
@@ -90,36 +83,23 @@ int myStackADT::top()
 
         this->instructions = 5;
 
-        return this->stack[this->topPointer];
+        return this->topPointer->data;
     }
 }
 
 int myStackADT::push(int value)
 {
-    if(this->topPointer == this->maxSize - 1)
+    Node* temp = new Node(value);
+    if(!temp)
     {
-        // 1 for accessing variables (2)
-        // 1 for comparing values (1)
-        // 1 for returning value (1)
-
-        this->instructions = 4;
-
-        return 0;
+        return -1;
     }
     else
     {
-        // 1 for accessing variables (6)
-        // 1 for accessing array (1)
-        // 1 for comparing values (1)
-        // 1 for returning value (1)
-        // 1 for adding (1)
-        // 1 for assigning (2)
-
-        this->instructions = 12;
-
-        this->topPointer = this->topPointer + 1;
-        this->stack[this->topPointer] = value;
-        return value;
+        temp->data = value;
+        temp->next = this->topPointer;
+        this->topPointer = temp;
+        return this->topPointer->data;
     }
 }
 
@@ -136,19 +116,12 @@ int myStackADT::pop()
     }
     else
     {
-        // 1 for accessing variables (6)
-        // 1 for accessing array (2)
-        // 1 for comparing values (1)
-        // 1 for returning value (1)
-        // 1 for subtracting (1)
-        // 1 for assigning (2)
-
-        this->instructions = 13;
-
-        int temp = this->stack[this->topPointer];
-        this->stack[this->topPointer] = 0;
-        this->topPointer = this->topPointer - 1;
-        return temp;
+        Node *temp;
+        temp = this->topPointer;
+        int tempValue = temp->data;
+        this->topPointer = this->topPointer->next;
+        free(temp);
+        return tempValue;
     }
 }
 
