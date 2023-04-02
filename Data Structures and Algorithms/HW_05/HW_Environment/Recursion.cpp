@@ -24,22 +24,17 @@ void recursion::reverseIterative(string fname)
     string line;
     ifstream inFile(fname);
     this->maxSize = countLine(fname);
-    this->array = new int[this->maxSize];
+    this->array = new int[this->maxSize + 1];
     int count = 0;
 
     if(inFile.is_open())
     {
         while(getline(inFile, line))
         {
-            if(is_number(line))
-            {
-                int value = stoi(line);
-                this->array[count] = value;
-                count++;
-            }
+            int value = stoi(line);
+            this->array[count] = value;
+            count++;
         }
-        //resets max size to fill in for void variables that are non numbers
-        this->maxSize = count;
         inFile.close();
     }
     else
@@ -53,15 +48,17 @@ void recursion::reverseIterative(string fname)
     {
         cout << this->array[a] << ", ";
     }
-    cout << this->array[maxSize] << "]\n" << endl;
+    cout << this->array[this->maxSize - 1] << "]\n" << endl;
 
-    cout << "The reverse order of the array is : " << endl;
+    cout << "The reverse order of the array is: " << endl;
     cout << "[";
-    for(int a = this->maxSize; a > 0; a++)
+    for(int a = this->maxSize - 1; a > 0; a--)
     {
-        cout << this->array[a] << ",";
+        cout << this->array[a] << ", ";
     }
     cout << this->array[0] << "]\n" << endl;
+
+    delete this->array;
 
 }
 
@@ -101,4 +98,24 @@ int recursion::countLine(string fname)
     }
     //returns count of lines if file can open
     return count;
+}
+
+int recursion::getInstructions()
+{
+    return this->instructions;
+}
+
+void recursion::resetInstructions()
+{
+    this->instructions = 0;
+}
+
+void recursion::writeOutput(ofstream& recFile, string line)
+{
+    //writes to the output file and ends with a newline
+    recFile << line << endl;
+
+    // 1 for writing to file operation
+
+    this->instructions = 1;
 }

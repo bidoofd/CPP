@@ -71,55 +71,79 @@ int main()
 
     cout << "\n\n" << endl;
 
-
-    // Creates size of list and loops until int is inputted
-    while(boolFlag)
-    {
-        //asks user for input
-        cout << "Enter the size of the stack" << endl;
-        getline(cin, stringSize);
-        // uses is_number function to see if inputted value is a num
-        if(is_number(stringSize) == false)
-        {
-            cout << "Not a valid size." << endl;
-            //if it isnt, then have the user re enter value until num
-        }
-        else if(is_number(stringSize) == true)
-        {
-            //convert string to int and end loop
-            size = stoi(stringSize);
-            //if to check if the value is is greater than 0 for invalid size
-            if(size > 0)
-            {
-                cout << "Not a valid size." << endl;
-            }
-            else
-            {
-                boolFlag = false;
-            }
-        }
-    }
-
     // Entering name to create object
     cout << "Enter the name of recursion object" << endl;
     cin.ignore(); //ignores newline character from line 52 "cin >> size"
     getline(cin, name);
 
     // Creates object
-    //recursion mSA(name, size);
+    recursion rec(name);
 
     inFile.open(recFile);
 
     // Objects writes to recording file
-    /*mSA.writeOutput(inFile, R"(                     .__.                                 ._. 
+    rec.writeOutput(inFile, R"(                     .__.                                 ._. 
     __  _  __  ____  |  |    ____   ____    _____    ____ | | 
     \ \/ \/ /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \| | 
      \     / \  ___/ |  |__\  \___(  <_> )|  Y Y  \\  ___/ \| 
       \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
-                  \/            \/      \_/     \/      \/ \/)");*/
+                  \/            \/      \_/     \/      \/ \/)");
 
-    //mSA.writeOutput(inFile, "Enter the size of the array");
-    //mSA.writeOutput(inFile, to_string(size));
-    //mSA.writeOutput(inFile, "Enter the name of myQueueADT object");
-    //mSA.writeOutput(inFile, name);
+    rec.writeOutput(inFile, "Enter the name of myQueueADT object");
+    rec.writeOutput(inFile, name);
+
+    while(choice != 4)
+    {
+        boolFlag = true;
+        rec.resetInstructions();
+        // Menu Options
+        cout << "Enter which option you would like to choose by number: \n" << endl;
+        cout << "1. reverseIterative" << endl;
+        cout << "2. reverseRrecursion" << endl;
+        cout << "3. reverseSimulatedRecursion" << endl;
+        cout << "4. To Exit." << endl;
+
+        while(boolFlag)
+        {
+            getline(cin, stringChoice);
+            if(is_number(stringChoice) == false)
+            {
+                cout << "Not a valid choice." << endl;
+                rec.writeOutput(inFile, "Not a valid choice.");
+            }
+            else if(is_number(stringChoice) == true)
+            {
+                choice = stoi(stringChoice);
+                boolFlag = false;
+            }
+        }
+
+        boolFlag = true;
+
+        cout << "\n\n" << endl;
+        rec.writeOutput(inFile, "\n\n");
+        rec.writeOutput(inFile, "Enter which option you would like to choose by number: \n");
+        rec.writeOutput(inFile, "1. reverseIterative");
+        rec.writeOutput(inFile, "2. reverseRrecursion");
+        rec.writeOutput(inFile, "3. reverseSimulatedRecursion");
+        rec.writeOutput(inFile, "4. To Exit.");
+        rec.writeOutput(inFile, to_string(choice));
+
+
+        //The if menu and print operations of flags
+        // -Flag variable is being used to determine the operation used
+        if(choice == 1)
+        {
+            cout << "Enter the filename for the file to print: " << endl;
+            getline(cin, line);
+            rec.reverseIterative(line);
+        }
+        else if(choice == 2)
+        {
+            cout << "Enter the filename for the file to print: " << endl;
+            getline(cin, line);
+            rec.reverseIterative(line);
+        }
+    }
+    system("pause");
 }

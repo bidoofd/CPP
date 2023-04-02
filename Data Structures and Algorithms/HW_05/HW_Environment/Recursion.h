@@ -11,7 +11,7 @@ class recursion
         string name;
         int maxSize;
         int instructions;
-        int *array = new int[maxSize];
+        int *array;
     public:
         recursion(string name);
         void reverseIterative(string fileName);
@@ -20,6 +20,10 @@ class recursion
 
         void printFile(string fileName);
         int countLine(string fileName);
+
+        int getInstructions();
+        void resetInstructions();
+
         void writeOutput(ofstream& file, string line);
 };
 
