@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -12,6 +13,8 @@ bool is_number (string line)
 
     return false;
 }
+
+
 
 //sets up myStackADT class
 recursion::recursion(string n)
@@ -77,16 +80,20 @@ void recursion::reverseSimulatedRecursion(string fname)
 {
     string line;
     ifstream inFile(fname);
-    int count = 0;
+
+    stack<int> stack;
 
     if(inFile.is_open())
     {
+        cout << "The original order of the stack is: " << endl;
+        cout << "[";
         while(getline(inFile, line))
         {
             int value = stoi(line);
-            this->array[count] = value;
-            count++;
+            cout << value << ", ";
+            stack.push(value);
         }
+        cout << "]" << endl;
         inFile.close();
     }
     else
@@ -94,23 +101,14 @@ void recursion::reverseSimulatedRecursion(string fname)
         cout << "File not found." << endl;
     }
 
-    cout << "The original order of the array is: " << endl;
-    cout << "[";
-    for(int a = 0; a < this->maxSize - 1; a++)
-    {
-        cout << this->array[a] << ", ";
-    }
-    cout << this->array[this->maxSize - 1] << "]\n" << endl;
-
     cout << "The reverse order of the array is: " << endl;
     cout << "[";
-    for(int a = this->maxSize - 1; a > 0; a--)
+    while(!stack.empty())
     {
-        cout << this->array[a] << ", ";
+        cout << stack.top() << ", ";
+        stack.pop();
     }
-    cout << this->array[0] << "]\n" << endl;
-
-    delete this->array;
+    cout << "]" << endl;
 }
 
 //counts the line in the file to set size for array

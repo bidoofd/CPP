@@ -144,6 +144,12 @@ int main()
             getline(cin, line);
             rec.reverseIterative(line);
         }
+        else if(choice == 3)
+        {
+            cout << "Enter the filename for the file to print: " << endl;
+            getline(cin, line);
+            rec.reverseSimulatedRecursion(line);
+        }
     }
     system("pause");
 }
