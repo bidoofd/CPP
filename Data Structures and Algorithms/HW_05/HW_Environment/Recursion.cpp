@@ -77,8 +77,6 @@ void recursion::reverseSimulatedRecursion(string fname)
 {
     string line;
     ifstream inFile(fname);
-    this->maxSize = countLine(fname);
-    this->array = new int[this->maxSize + 1];
     int count = 0;
 
     if(inFile.is_open())
