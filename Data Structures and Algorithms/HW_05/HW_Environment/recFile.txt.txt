@@ -15,17 +15,7 @@ Enter which option you would like to choose by number:
 2. reverseRrecursion
 3. reverseSimulatedRecursion
 4. To Exit.
-1
-
-
-
-Enter which option you would like to choose by number: 
-
-1. reverseIterative
-2. reverseRrecursion
-3. reverseSimulatedRecursion
-4. To Exit.
-1
+2
 
 
 

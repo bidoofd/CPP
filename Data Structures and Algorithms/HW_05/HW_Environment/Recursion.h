@@ -16,9 +16,8 @@ class recursion
         recursion(string name);
         void reverseIterative(string fileName);
         string reverseRrecursive(ifstream& file);
-        void reverseSimulatedRecursion();
+        void reverseSimulatedRecursion(string fileName);
 
-        void printFile(string fileName);
         int countLine(string fileName);
 
         int getInstructions();

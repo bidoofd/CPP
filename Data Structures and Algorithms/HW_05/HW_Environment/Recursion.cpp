@@ -62,15 +62,57 @@ void recursion::reverseIterative(string fname)
 
 }
 
-string recursion::reverseRrecursive(ifstream& file)
+string recursion::reverseRrecursive(ifstream& fname)
 {
-    if(file.eof())
+    if(fname.eof())
     {
         return "";
     }
     string line;
-    getline(file, line);
-    return line + "\n" + reverseRrecursive(file);
+    getline(fname, line);
+    return line + "\n" + reverseRrecursive(fname);
+}
+
+void recursion::reverseSimulatedRecursion(string fname)
+{
+    string line;
+    ifstream inFile(fname);
+    this->maxSize = countLine(fname);
+    this->array = new int[this->maxSize + 1];
+    int count = 0;
+
+    if(inFile.is_open())
+    {
+        while(getline(inFile, line))
+        {
+            int value = stoi(line);
+            this->array[count] = value;
+            count++;
+        }
+        inFile.close();
+    }
+    else
+    {
+        cout << "File not found." << endl;
+    }
+
+    cout << "The original order of the array is: " << endl;
+    cout << "[";
+    for(int a = 0; a < this->maxSize - 1; a++)
+    {
+        cout << this->array[a] << ", ";
+    }
+    cout << this->array[this->maxSize - 1] << "]\n" << endl;
+
+    cout << "The reverse order of the array is: " << endl;
+    cout << "[";
+    for(int a = this->maxSize - 1; a > 0; a--)
+    {
+        cout << this->array[a] << ", ";
+    }
+    cout << this->array[0] << "]\n" << endl;
+
+    delete this->array;
 }
 
 //counts the line in the file to set size for array
