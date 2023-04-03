@@ -15,7 +15,7 @@ class recursion
     public:
         recursion(string name);
         void reverseIterative(string fileName);
-        string reverseRrecursive(ifstream& file);
+        void reverseRrecursive(ifstream& file);
         void reverseSimulatedRecursion(string fileName);
         void binarySearch(string fileName);
 

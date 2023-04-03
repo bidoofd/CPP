@@ -9,7 +9,6 @@ using namespace std;
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // Bool is number functions to check if a number is a string.
-// is number is used
 bool is_num(const std::string& s)
 {
     std::string::const_iterator it = s.begin();
@@ -17,6 +16,7 @@ bool is_num(const std::string& s)
     return !s.empty() && it == s.end();
 }
 
+//Binary search algorithm
 int bSearch(int array[], int left, int right, int value)
 {
     if(left > right)
@@ -47,21 +47,30 @@ int bSearch(int array[], int left, int right, int value)
 //sets up recursion class
 recursion::recursion(string n)
 {
+    //Sets up class with name
     this->name = n;
 }
 
 void recursion::reverseIterative(string fname)
 {
+    // Variables
+    //  - line: used for getting string input and file input
+    //  - inFile: File object
+    //  - count: counts to store values
     string line;
     ifstream inFile(fname);
     this->maxSize = countLine(fname);
     this->array = new int[this->maxSize + 1];
     int count = 0;
 
+    // while the file is able top be opened
     if(inFile.is_open())
     {
+        // get the line
         while(getline(inFile, line))
         {
+            //convert it over to an int value and store into array.
+            //increase count
             int value = stoi(line);
             this->array[count] = value;
             count++;
@@ -73,6 +82,7 @@ void recursion::reverseIterative(string fname)
         cout << "File not found." << endl;
     }
 
+    //prints out the array normally
     cout << "The original order of the array is: " << endl;
     cout << "[";
     for(int a = 0; a < this->maxSize - 1; a++)
@@ -81,6 +91,7 @@ void recursion::reverseIterative(string fname)
     }
     cout << this->array[this->maxSize - 1] << "]\n" << endl;
 
+    //prints out the array in reverse order
     cout << "The reverse order of the array is: " << endl;
     cout << "[";
     for(int a = this->maxSize - 1; a > 0; a--)
@@ -93,15 +104,21 @@ void recursion::reverseIterative(string fname)
 
 }
 
-string recursion::reverseRrecursive(ifstream& fname)
+void recursion::reverseRrecursive(ifstream& file)
 {
-    if(fname.eof())
-    {
-        return "";
-    }
     string line;
-    getline(fname, line);
-    return line + "\n" + reverseRrecursive(fname);
+    if(file >> line)
+    {
+        cout << line << " ";
+        reverseRrecursive(file);
+        cout << line << " ";
+    }
+    else if (file.eof())
+    {
+        cout << endl;
+        cout << "The reverse order of the list is: " << endl;
+    }
+    file.close();
 }
 
 void recursion::reverseSimulatedRecursion(string fname)

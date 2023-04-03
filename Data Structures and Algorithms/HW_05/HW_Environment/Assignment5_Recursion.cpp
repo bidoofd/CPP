@@ -143,7 +143,11 @@ int main()
         {
             cout << "Enter the filename for the file to read: " << endl;
             getline(cin, line);
-            rec.reverseIterative(line);
+            ifstream file(line);
+
+            cout << "The original order will print in a horizontal manner. " << endl;
+            rec.reverseRrecursive(file);
+            cout << endl;
         }
         else if(choice == 3)
         {
@@ -158,5 +162,14 @@ int main()
             rec.binarySearch(line);
         }
     }
+
+    cout << R"(   ____                     .______.                  ._. 
+  / ___\  ____    ____    __| _/\_ |__  ___.__.  ____ | | 
+ / /_/  >/  _ \  /  _ \  / __ |  | __ \<   |  |_/ __ \| | 
+ \___  /(  <_> )(  <_> )/ /_/ |  | \_\ \\___  |\  ___/ \| 
+/_____/  \____/  \____/ \____ |  |___  // ____| \___  >__ 
+        \______________/     \/      \/ \/          \/ \/ 
+                                                          )" << endl;
+
     system("pause");
 }
