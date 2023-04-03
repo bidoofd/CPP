@@ -6,12 +6,19 @@
 
 using namespace std;
 
-bool is_number (string line)
+bool is_number(string line)
 {
     if (isdigit(atoi(line.c_str())))
         return true;
 
     return false;
+}
+
+bool is_num(const std::string& s)
+{
+    std::string::const_iterator it = s.begin();
+    while (it != s.end() && std::isdigit(*it)) ++it;
+    return !s.empty() && it == s.end();
 }
 
 int bSearch(int array[], int left, int right, int value)
@@ -20,20 +27,22 @@ int bSearch(int array[], int left, int right, int value)
     {
         return -1;
     }
-
-    int middle = left + ( right - left) + 1;
-
-    if(array[middle] == value)
-    {
-        return middle;
-    }
-    else if(array[middle] > value)
-    {
-        return bSearch(array, left, right - 1, value);
-    }
     else
     {
-        return bSearch(array, left + 1, right, value);
+        int middle = (left + right) / 2;
+
+        if(array[middle] == value)
+        {
+            return middle;
+        }
+        else if(array[middle] > value)
+        {
+            return bSearch(array, left, middle - 1, value);
+        }
+        else
+        {
+            return bSearch(array, middle + 1, right, value);
+        }
     }
 }
 
@@ -132,14 +141,13 @@ void recursion::reverseSimulatedRecursion(string fname)
     cout << "]" << endl;
 }
 
-int recursion::binarySearch(string fname)
+void recursion::binarySearch(string fname)
 {
     string line;
     ifstream inFile(fname);
     this->maxSize = countLine(fname);
     this->array = new int[this->maxSize + 1];
     int count = 0;
-    int value;
 
     if(inFile.is_open())
     {
@@ -158,19 +166,20 @@ int recursion::binarySearch(string fname)
 
     bool boolFlag = true;
     string stringValue;
+    int value;
 
+    //asks user for input
+    cout << "Enter the value to find: " << endl;
     while(boolFlag)
     {
-        //asks user for input
-        cout << "Enter the value to find: " << endl;
         getline(cin, stringValue);
         // uses is_number function to see if inputted value is a num
-        if(is_number(stringValue) == false)
+        if(is_num(stringValue) == false)
         {
             cout << "Not a valid value" << endl;
             //if it isnt, then have the user re enter value until num
         }
-        else if(is_number(stringValue) == true)
+        else if(is_num(stringValue) == true)
         {
             //convert string to int and end loop
             value = stoi(stringValue);
@@ -185,7 +194,16 @@ int recursion::binarySearch(string fname)
         }
     }
 
-    return bSearch(this->array, 0, count, value);
+    int foundValue = bSearch(this->array, 0, count, value);
+
+    if(foundValue == -1)
+    {
+        cout << "The value " << value << " was not found in the array." << endl;
+    }
+    else
+    {
+        cout << "The value " << value <<  " was found in the array at position: " << foundValue << "." << endl;
+    }
 
 }
 

@@ -17,7 +17,7 @@ class recursion
         void reverseIterative(string fileName);
         string reverseRrecursive(ifstream& file);
         void reverseSimulatedRecursion(string fileName);
-        int binarySearch(string fileName);
+        void binarySearch(string fileName);
 
         int countLine(string fileName);
 

@@ -135,25 +135,25 @@ int main()
         // -Flag variable is being used to determine the operation used
         if(choice == 1)
         {
-            cout << "Enter the filename for the file to print: " << endl;
+            cout << "Enter the filename for the file to read: " << endl;
             getline(cin, line);
             rec.reverseIterative(line);
         }
         else if(choice == 2)
         {
-            cout << "Enter the filename for the file to print: " << endl;
+            cout << "Enter the filename for the file to read: " << endl;
             getline(cin, line);
             rec.reverseIterative(line);
         }
         else if(choice == 3)
         {
-            cout << "Enter the filename for the file to print: " << endl;
+            cout << "Enter the filename for the file to read: " << endl;
             getline(cin, line);
             rec.reverseSimulatedRecursion(line);
         }
         else if(choice == 4)
         {
-            cout << "Enter the filename for the file to print: " << endl;
+            cout << "Enter the filename for the file to read: " << endl;
             getline(cin, line);
             rec.binarySearch(line);
         }
