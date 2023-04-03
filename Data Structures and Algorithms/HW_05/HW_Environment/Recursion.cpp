@@ -19,24 +19,29 @@ bool is_num(const std::string& s)
 //Binary search algorithm
 int bSearch(int array[], int left, int right, int value)
 {
+    // If the left ever passes the right that means we did not find the value
     if(left > right)
     {
         return -1;
     }
     else
     {
+        // re calculates middle pointer value
         int middle = (left + right) / 2;
 
         if(array[middle] == value)
         {
+            // if it is found return it.
             return middle;
         }
         else if(array[middle] > value)
         {
+            // if it is not found on the right side then move the right pointer
             return bSearch(array, left, middle - 1, value);
         }
         else
         {
+            // if it is not found on the left side then move the left pointer
             return bSearch(array, middle + 1, right, value);
         }
     }
@@ -100,44 +105,58 @@ void recursion::reverseIterative(string fname)
     }
     cout << this->array[0] << "]\n" << endl;
 
+    //deletes array to save memory
     delete this->array;
 
 }
 
 void recursion::reverseRrecursive(ifstream& file)
 {
+    // sets up string for getting text in file
     string line;
+    //reads the text file
     if(file >> line)
     {
+        //prints out current line
         cout << line << " ";
+        //calls itself again to print out next line
         reverseRrecursive(file);
+        //prints out list in reverse
         cout << line << " ";
     }
+    // when line reaches end of file (base case)
     else if (file.eof())
     {
+        // create new line and specify list
         cout << endl;
         cout << "The reverse order of the list is: " << endl;
     }
+    //closes file
     file.close();
 }
 
 void recursion::reverseSimulatedRecursion(string fname)
 {
+    //set up variables
     string line;
     ifstream inFile(fname);
 
+    //stack variable
     stack<int> stack;
 
     if(inFile.is_open())
     {
+        //prints out text for stack
         cout << "The original order of the stack is: " << endl;
         cout << "[";
         while(getline(inFile, line))
         {
+            //converts the line from text to string, prints it out, and pushes it to stack
             int value = stoi(line);
             cout << value << ", ";
             stack.push(value);
         }
+        // end original array print and close file
         cout << "]" << endl;
         inFile.close();
     }
@@ -146,7 +165,8 @@ void recursion::reverseSimulatedRecursion(string fname)
         cout << "File not found." << endl;
     }
 
-    cout << "The reverse order of the array is: " << endl;
+    //prints out the stack in reverse by printing out top then popping and printing again
+    cout << "The reverse order of the stack is: " << endl;
     cout << "[";
     while(!stack.empty())
     {
