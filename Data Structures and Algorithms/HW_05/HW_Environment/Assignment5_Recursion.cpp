@@ -132,9 +132,9 @@ int main()
 
 
         //The if menu and print operations of flags
-        // -Flag variable is being used to determine the operation used
         if(choice == 1)
         {
+            // Has user enter in file name
             cout << "Enter the filename for the file to read: " << endl;
             getline(cin, line);
             rec.reverseIterative(line);

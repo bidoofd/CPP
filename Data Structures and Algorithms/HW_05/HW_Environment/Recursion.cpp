@@ -6,14 +6,10 @@
 
 using namespace std;
 
-bool is_number(string line)
-{
-    if (isdigit(atoi(line.c_str())))
-        return true;
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    return false;
-}
-
+// Bool is number functions to check if a number is a string.
+// is number is used
 bool is_num(const std::string& s)
 {
     std::string::const_iterator it = s.begin();
@@ -46,7 +42,9 @@ int bSearch(int array[], int left, int right, int value)
     }
 }
 
-//sets up myStackADT class
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//sets up recursion class
 recursion::recursion(string n)
 {
     this->name = n;
