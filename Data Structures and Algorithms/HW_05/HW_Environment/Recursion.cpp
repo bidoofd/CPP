@@ -14,7 +14,28 @@ bool is_number (string line)
     return false;
 }
 
+int bSearch(int array[], int left, int right, int value)
+{
+    if(left > right)
+    {
+        return -1;
+    }
 
+    int middle = left + ( right - left) + 1;
+
+    if(array[middle] == value)
+    {
+        return middle;
+    }
+    else if(array[middle] > value)
+    {
+        return bSearch(array, left, right - 1, value);
+    }
+    else
+    {
+        return bSearch(array, left + 1, right, value);
+    }
+}
 
 //sets up myStackADT class
 recursion::recursion(string n)
@@ -109,6 +130,63 @@ void recursion::reverseSimulatedRecursion(string fname)
         stack.pop();
     }
     cout << "]" << endl;
+}
+
+int recursion::binarySearch(string fname)
+{
+    string line;
+    ifstream inFile(fname);
+    this->maxSize = countLine(fname);
+    this->array = new int[this->maxSize + 1];
+    int count = 0;
+    int value;
+
+    if(inFile.is_open())
+    {
+        while(getline(inFile, line))
+        {
+            int value = stoi(line);
+            this->array[count] = value;
+            count++;
+        }
+        inFile.close();
+    }
+    else
+    {
+        cout << "File not found." << endl;
+    }
+
+    bool boolFlag = true;
+    string stringValue;
+
+    while(boolFlag)
+    {
+        //asks user for input
+        cout << "Enter the value to find: " << endl;
+        getline(cin, stringValue);
+        // uses is_number function to see if inputted value is a num
+        if(is_number(stringValue) == false)
+        {
+            cout << "Not a valid value" << endl;
+            //if it isnt, then have the user re enter value until num
+        }
+        else if(is_number(stringValue) == true)
+        {
+            //convert string to int and end loop
+            value = stoi(stringValue);
+            if(value >= 0)
+            {
+                boolFlag = false;
+            }
+            else
+            {
+                cout << "Cannot enter a negative number." << endl;
+            }
+        }
+    }
+
+    return bSearch(this->array, 0, count, value);
+
 }
 
 //counts the line in the file to set size for array

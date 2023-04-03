@@ -92,7 +92,7 @@ int main()
     rec.writeOutput(inFile, "Enter the name of myQueueADT object");
     rec.writeOutput(inFile, name);
 
-    while(choice != 4)
+    while(choice != 5)
     {
         boolFlag = true;
         rec.resetInstructions();
@@ -101,7 +101,8 @@ int main()
         cout << "1. reverseIterative" << endl;
         cout << "2. reverseRrecursion" << endl;
         cout << "3. reverseSimulatedRecursion" << endl;
-        cout << "4. To Exit." << endl;
+        cout << "4. binarySearch" << endl;
+        cout << "5. To Exit." << endl;
 
         while(boolFlag)
         {
@@ -149,6 +150,12 @@ int main()
             cout << "Enter the filename for the file to print: " << endl;
             getline(cin, line);
             rec.reverseSimulatedRecursion(line);
+        }
+        else if(choice == 4)
+        {
+            cout << "Enter the filename for the file to print: " << endl;
+            getline(cin, line);
+            rec.binarySearch(line);
         }
     }
     system("pause");
