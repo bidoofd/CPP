@@ -25,6 +25,10 @@ class Tree
         Node* root;
     public:
         Tree();
+        Node* createNode(int value);
+        Node* insertNode(int array[], int rank, int size);
+
+        void inOrder(Node* root);
 };
 
 #endif
