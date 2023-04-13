@@ -4,31 +4,35 @@
 
 using namespace std;
 
-class Node
+struct Node
 {
-    public:
-        int data;
-        Node* left;
-        Node* right;
+    int data;
+    Node* left;
+    Node* right;
 
-        Node(int value)
-        {
-            this->data = value;
-            this->left = NULL;
-            this->right = NULL;
-        }
+    Node(int value)
+    {
+        this->data = value;
+        this->left = NULL;
+        this->right = NULL;
+    }
 };
 
 class Tree
 {
-    private:
-        Node* root;
     public:
+        Node* root;
+        int size;
+        int *array;
         Tree();
-        Node* createNode(int value);
-        Node* insertNode(int array[], int rank, int size);
+        void insertNode(int value);
 
-        void inOrder(Node* root);
+        void preOrder(Node* root, int count);
+
+        int totalNodes(Node* root);
+
+        void createArray();
+        void printArray();
 };
 
 #endif
