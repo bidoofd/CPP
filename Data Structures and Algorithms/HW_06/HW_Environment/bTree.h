@@ -6,11 +6,10 @@ using namespace std;
 
 struct Node
 {
-    int data;
+    string data;
     Node* left;
     Node* right;
-
-    Node(int value)
+    Node(string value)
     {
         this->data = value;
         this->left = NULL;
@@ -23,11 +22,14 @@ class Tree
     public:
         Node* root;
         int size;
-        int *array;
+        string *array;
         Tree();
-        void insertNode(int value);
+        void insertNode(string value, Node* currentNode);
 
         void preOrder(Node* root, int count);
+        void postOrder(Node* root, int count);
+        void inOrder(Node* root, int count);
+        int solveExpression(Node* root);
 
         int totalNodes(Node* root);
 
