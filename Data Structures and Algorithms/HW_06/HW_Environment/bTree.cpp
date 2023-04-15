@@ -2,36 +2,14 @@
 #include <iostream>
 #include <fstream>
 #include <cstring>
-#include <stack>
+#include <queue>
+#include <algorithm>
 
 using namespace std;
 
-int toInt(string s)
+Tree::Tree(string name)
 {
-    int num = 0;
-         
-    // Check if the integral value is
-    // negative or not
-    // If it is not negative, generate the number
-    // normally
-    if(s[0]!='-')
-        for (int i=0; i<s.length(); i++)
-            num = num*10 + (int(s[i])-48);
-    // If it is negative, calculate the +ve number
-    // first ignoring the sign and invert the
-    // sign at the end
-    else
-    {
-      for (int i=1; i<s.length(); i++)
-        num = num*10 + (int(s[i])-48);
-      num = num*-1;
-    }
-     
-    return num;
-}
-
-Tree::Tree()
-{
+    this->name = name;
     root = NULL;
 }
 
@@ -39,13 +17,17 @@ void Tree::insertNode(string value, Node* currentNode)
 {
     if(currentNode == NULL)
     {
+        //if the current node is root create new node from value and make it root
         Node* newNode = new Node(value);
         this->root = newNode;
+        cout << "The node has been made as the root." << endl;
     }
     else
     {
         int choice = 0;
         while(choice != 5)
+
+        //traversal/insertion menu
         {
             cout << "The value you are trying to insert is " << value << endl;
             cout << "The node you are currently at is indicated by this data: " << currentNode->data << endl;
@@ -60,34 +42,41 @@ void Tree::insertNode(string value, Node* currentNode)
 
             if(choice == 1)
             {
+                //checks to see if a value already exists
                 if(currentNode->left == NULL)
                 {
+                    //if it doesnt insert new node
                     Node* newNode = new Node(value);
                     currentNode->left = newNode;
-                    break;
+                    cout << "Successfully created left node." << endl;
+                    return;
                 }
                 else
                 {
                     cout << "Cannot enter value here." << endl;
                 }
             }
-            if(choice == 2)
+            //same process for right node
+            else if(choice == 2)
             {
                 if(currentNode->right == NULL)
                 {
                     Node* newNode = new Node(value);
                     currentNode->right = newNode;
-                    break;
+                    cout << "Successfully created right node." << endl;
+                    return;
                 }
                 else
                 {
                     cout << "Cannot enter value here." << endl;
                 }
             }
-            if(choice == 3)
+            //checks to see if there is an actual node to move to
+            else if(choice == 3)
             {
                 if(currentNode->left != NULL)
                 {
+                    //if node exists, move to that node
                     insertNode(value, currentNode->left);
                     break;
                 }
@@ -96,7 +85,7 @@ void Tree::insertNode(string value, Node* currentNode)
                     cout << "Cannot move here" << endl;
                 }
             }
-            if(choice == 4)
+            else if(choice == 4)
             {
                 if(currentNode->right != NULL)
                 {
@@ -108,17 +97,96 @@ void Tree::insertNode(string value, Node* currentNode)
                     cout << "Cannot move here" << endl;
                 }
             }
-    }
+            else if(choice == 5)
+            {
+                break;
+            }
+        }
     }
 
+}
+
+void Tree::insertNodeAuto(string fileName)
+{
+    string line;
+    ifstream inFile(fileName);
+
+    // while the file is able top be opened
+    if(inFile.is_open())
+    {
+        // get the line
+        while(getline(inFile, line))
+        {
+            //create new node
+            Node* newNode = new Node(line);
+            //if the root is null set the root to new node value
+            if(this->root == NULL)
+            {
+                this->root = newNode;
+                continue;
+            }
+            //create a queue for nodes.
+            //  the reason for this is because queues ise the FIFO property.
+            //  this is useful for binary trees in breadth first traversal
+            //  that is how this algorithm is creating the binary tree
+            queue<Node*> nodeQueue;
+            //Push root into queue
+            nodeQueue.push(this->root);
+            //while the queue is not empty
+            while(nodeQueue.empty() == false)
+            {
+                //make the current node whatever node is at the front of the queue
+                Node* currentNode = nodeQueue.front();
+                // remove that node from queue since it is in use
+                nodeQueue.pop();
+
+                // if the left node of the current node exists
+                if(currentNode->left != NULL)
+                {
+                    //push that node into the queue
+                    nodeQueue.push(currentNode->left);
+                }
+                else
+                {
+                    //otherwise make the left node of that current node the new node
+                    currentNode->left = newNode;
+                    break;
+                }
+
+                if(currentNode->right != NULL)
+                {
+                    nodeQueue.push(currentNode->right);
+                }
+                else
+                {
+                    currentNode->right = newNode;
+                    break;
+                }
+            }
+
+        }
+        inFile.close();
+    }
+    else
+    {
+        cout << "File not found." << endl;
+    }
+
+    this->size = totalNodes(this->root);
+}
+
+void Tree::resetTree()
+{
+    this->root = NULL;
 }
 
 void Tree::preOrder(Node* root, int count)
 {
     if(root != NULL)
-    {     
-        this->array[count++] = root->data;
-        cout << root->data << endl;
+    {   
+        //this->array[count++] = root->data;
+        this->stack.push(root->data);
+        cout << root->data << " ";
         preOrder(root->left, count);
         preOrder(root->right, count);
     }
@@ -130,8 +198,9 @@ void Tree::postOrder(Node* root, int count)
     {
         postOrder(root->left, count);
         postOrder(root->right, count);
-        this->array[count++] = root->data;
-        cout << root->data << endl;
+        //this->array[count++] = root->data;
+        this->stack.push(root->data);
+        cout << root->data << " ";
     }
 }
 
@@ -141,8 +210,9 @@ void Tree::inOrder(Node* root, int count)
     if(root != NULL)
     {
         inOrder(root->left, count);
-        this->array[count++] = root->data;
-        cout << root->data << endl;
+        //this->array[count++] = root->data;
+        this->stack.push(root->data);
+        cout << root->data << " ";
         inOrder(root->right, count);
     }
 }
@@ -151,7 +221,7 @@ int Tree::solveExpression(Node* root)
 {
     if(root->left == NULL && root->right == NULL)
     {
-        return toInt(root->data);
+        return int(root->data.c_str());
     }
     else
     {
@@ -186,18 +256,53 @@ int Tree::totalNodes(Node* root)
     return 1 + left + right;
 }
 
-void Tree::createArray()
-{
-    this->size = totalNodes(this->root);
-    this->array = new string[totalNodes(this->root)];
-    cout << "Array created successfully" << endl;
-}
-
 void Tree::printArray()
 {
     for(int a = 0; a < this->size; a++)
     {
-        cout << this->array[a] << endl;
+        //cout << this->array[a] << " ";
+        cout << stack.front() << " ";
+        stack.pop();
     }
-    delete this->array;
+}
+
+int Tree::countLine(string fname)
+{
+    //variable names
+    string line;
+    int count = 0;
+    ifstream inFile(fname);
+    //if statement for opening file
+    if(inFile.is_open())
+    {
+        //if true go in a while loop and count
+        while(getline(inFile, line))
+        {
+            count++;
+        }
+        //closes file
+        inFile.close();
+    }
+    else
+    {
+        //otherwise do nothing but print
+        cout << "Unable to open file." << endl;
+    }
+    //returns count of lines if file can open
+    return count;
+}
+
+void Tree::resetInstructions()
+{
+    this->instructions = 0;
+}
+
+void Tree::writeOutput(ofstream& recFile, string line)
+{
+    //writes to the output file and ends with a newline
+    recFile << line << endl;
+
+    // 1 for writing to file operation
+
+    this->instructions = 1;
 }
