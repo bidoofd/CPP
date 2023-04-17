@@ -1,0 +1,115 @@
+                     .__.                                 ._. 
+    __  _  __  ____  |  |    ____   ____    _____    ____ | | 
+    \ \/ \/ /_/ __ \ |  |  _/ ___\ /  _ \  /     \ _/ __ \| | 
+     \     / \  ___/ |  |__\  \___(  <_> )|  Y Y  \\  ___/ \| 
+      \/\_/   \___  >|____/ \___  >\____/ |__|_|  / \___  >__ 
+                  \/            \/      \_/     \/      \/ \/
+Enter the name of myQueueADT object
+
+
+
+
+Enter which option you would like to choose by number: 
+
+1. Create Binary Tree manually
+2. Create Binary Tree from file
+3. preOrderList of current tree
+4. postOrderList of current tree
+5. inOrderList of current tree
+6. Solve expression from current tree
+7. Delete current tree 
+8. Read Expression from String
+9. To exit.
+8
+Not a valid choice.
+
+
+
+Enter which option you would like to choose by number: 
+
+1. Create Binary Tree manually
+2. Create Binary Tree from file
+3. preOrderList of current tree
+4. postOrderList of current tree
+5. inOrderList of current tree
+6. Solve expression from current tree
+7. Delete current tree 
+8. Read Expression from String
+9. To exit.
+5
+
+
+
+Enter which option you would like to choose by number: 
+
+1. Create Binary Tree manually
+2. Create Binary Tree from file
+3. preOrderList of current tree
+4. postOrderList of current tree
+5. inOrderList of current tree
+6. Solve expression from current tree
+7. Delete current tree 
+8. Read Expression from String
+9. To exit.
+6
+
+
+
+Enter which option you would like to choose by number: 
+
+1. Create Binary Tree manually
+2. Create Binary Tree from file
+3. preOrderList of current tree
+4. postOrderList of current tree
+5. inOrderList of current tree
+6. Solve expression from current tree
+7. Delete current tree 
+8. Read Expression from String
+9. To exit.
+3
+
+
+
+Enter which option you would like to choose by number: 
+
+1. Create Binary Tree manually
+2. Create Binary Tree from file
+3. preOrderList of current tree
+4. postOrderList of current tree
+5. inOrderList of current tree
+6. Solve expression from current tree
+7. Delete current tree 
+8. Read Expression from String
+9. To exit.
+7
+
+
+
+Enter which option you would like to choose by number: 
+
+1. Create Binary Tree manually
+2. Create Binary Tree from file
+3. preOrderList of current tree
+4. postOrderList of current tree
+5. inOrderList of current tree
+6. Solve expression from current tree
+7. Delete current tree 
+8. Read Expression from String
+9. To exit.
+8
+Not a valid choice.
+
+
+
+Enter which option you would like to choose by number: 
+
+1. Create Binary Tree manually
+2. Create Binary Tree from file
+3. preOrderList of current tree
+4. postOrderList of current tree
+5. inOrderList of current tree
+6. Solve expression from current tree
+7. Delete current tree 
+8. Read Expression from String
+9. To exit.
+3

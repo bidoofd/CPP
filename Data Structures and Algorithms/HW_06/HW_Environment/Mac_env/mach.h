@@ -1,5 +1,5 @@
-#ifndef BTREE_H
-#define BTREE_H
+#ifndef MACH_H
+#define MACH_H
 #include <string>
 #include <queue>
 
@@ -35,18 +35,20 @@ class Tree
         // Root = root of tree
         // size
         Node* root;
-        //int size;
+        int size;
         string *array;
         queue<string> stack;
         Tree(string name);
         void insertNode(string value, Node* currentNode);
         void insertNodeAuto(string fileName);
+        void insertNodeAuto(string value, Node* currentNode);
         void resetTree();
 
         void preOrder(Node* root, int count);
         void postOrder(Node* root, int count);
         void inOrder(Node* root, int count);
         int solveExpression(Node* root);
+        void expressOptionTree(string word, Node* root);
 
         int totalNodes(Node* root);
 
