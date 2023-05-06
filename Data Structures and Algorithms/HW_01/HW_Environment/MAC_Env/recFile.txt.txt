@@ -1,0 +1,19 @@
+Enter the name of myUtilityClass object.
+5
+Enter which option you would like to choose: 
+1. Read File
+2. Print Arrays
+3. Write File
+4. Print File
+5. Exit
+1
+Enter the name of your text file: 
+read_01.txt
+Success! Amount of numbers in file is: 0.
+Enter which option you would like to choose: 
+1. Read File
+2. Print Arrays
+3. Write File
+4. Print File
+5. Exit
+5

@@ -1,11 +1,13 @@
-#include "myUtilityClass.h"
+#include "myUtilityClassMAC.h"
 #include <iostream>
+#include <unistd.h>
 #include <string>
 #include <map>
 #include <ctime>
 #include <chrono>
 #include <sstream>
 #include <iomanip>
+#include <cstdlib>
 
 using namespace std;
 using namespace std::chrono;
@@ -36,13 +38,15 @@ bool myUtilityClass::findFile(string fileName)
 }
 
 //reads intger type files
-int myUtilityClass::readFile(string fname, string arrName)
+int myUtilityClass::readFile(string fname)
 {
     //variable names
+    string fileName = getenv("HOME");
+    cout << fileName << endl;
     string line;
-    ifstream inFile(fname);
-    this->size = countLine(fname);
-    this->array = new int[this->size];
+    ifstream inFile(fileName + "/Desktop/coding/c++/Data Structures and Algorithms/HW_01/HW_Environment/MAC_Env/" + fname, ios::app);
+    int size = countLine(fname);
+    this->array = new int[size];
     //int *arr = new int[size];
     int count = 0;
 
@@ -56,7 +60,7 @@ int myUtilityClass::readFile(string fname, string arrName)
             //string line value is converted to int and stored into int value
             int value = stoi(line);
             //int value is then stored into array int arr[count] based on count
-            array[count] = value;
+            this->array[count] = value;
             //add to count in the array for positional movement
             count++;
         }
@@ -73,13 +77,13 @@ int myUtilityClass::readFile(string fname, string arrName)
     //After the file is done being read, it will store it into a the object's
     //hash map with the entered array name being the key, and the value of
     //the array int arr[a]
-    for(int a = 0; a < size; a++)
+    /*for(int a = 0; a < size; a++)
     {
         //int arra[a] element is stored into int value
-        int value = array[a];
+        int value = arr[a];
         //uses hashmap insert function for key and value
         this->arrMap[arrName].push_back(value);
-    }
+    }*/
     //delete []arr;
     return count;
 }
@@ -174,33 +178,22 @@ void myUtilityClass::writeOutput(ofstream& recFile, string line)
 void myUtilityClass::displayArray()
 {
     //When printing it cannot guarantee order due to it being a hashmap (unless linked hashmap?)
-    /*for(auto a = this->arrMap.cbegin(); a != arrMap.cend(); a++)
+    for(auto a = this->arrMap.cbegin(); a != arrMap.cend(); a++)
     {
         cout << "Key: " << a->first << endl;
         for(auto b = a->second.begin(); b != a->second.end(); b++)
         {
             cout << "Value: " << *b << endl;
         }
-    }*/
-
-    for(int a = 0; a < this->size; a++)
-    {
-        cout << this->array[a] << endl;
     }
 }
 
 void myUtilityClass::displayArray(ofstream &inFile)
 {
     //When printing it cannot guarantee order due to it being a hashmap (unless linked hashmap?)
-    for(auto a = this->arrMap.cbegin(); a != arrMap.cend(); a++)
+    for(int a = 0; a < this->size; a++)
     {
-        cout << "Key: " << a->first << endl;
-        writeOutput(inFile, "Key: " + a->first);
-        for(auto b = a->second.begin(); b != a->second.end(); b++)
-        {
-            cout << "Value: " << to_string(*b) << endl;
-            writeOutput(inFile, "Value: " + to_string(*b));
-        }
+        cout << "Value: " << this->array[a] << endl;
     }
 }
 
@@ -209,8 +202,9 @@ int myUtilityClass::countLine(string fname)
 {
     //variable names
     string line;
+    string fileName = getenv("HOME");
     int count = 0;
-    ifstream inFile(fname);
+    ifstream inFile(fileName + "/Desktop/coding/c++/Data Structures and Algorithms/HW_01/HW_Environment/MAC_Env/" + fname, ios::app);
     //if statement for opening file
     if(inFile.is_open())
     {

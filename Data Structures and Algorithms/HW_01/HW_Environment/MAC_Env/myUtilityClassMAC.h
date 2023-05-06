@@ -1,5 +1,5 @@
-#ifndef MYUTILITYCLASS_H
-#define MYUTILITYCLASS_H
+#ifndef MYUTILITYCLASSMAC_H
+#define MYUTILITYCLASSMAC_H
 #include <string>
 #include <unordered_map>
 #include <list>
@@ -41,7 +41,7 @@ class myUtilityClass
         myUtilityClass(string name);
 
         bool findFile(string fileName);
-        int readFile(string file, string arrName);
+        int readFile(string fileName);
         int writeFileInt(string arrName, int arrSize, string outFileName, int repeat, ofstream& file);
 
         void displayArray();

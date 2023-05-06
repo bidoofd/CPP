@@ -100,8 +100,8 @@ int main()
             if(mUC.findFile(fileName))
             {
                 //if successful prints out number of lines in file
-                cout << "Success! Amount of numbers in file is: " << mUC.readFileInt(fileName, arrName) << "." << endl;
-                mUC.writeOutput(inFile, "Success! Amount of numbers in file is: " + to_string(mUC.readFileInt(fileName, arrName)) + ".");
+                cout << "Success! Amount of numbers in file is: " << mUC.readFile(fileName, arrName) << "." << endl;
+                mUC.writeOutput(inFile, "Success! Amount of numbers in file is: " + to_string(mUC.readFile(fileName, arrName)) + ".");
             }
             else
             {

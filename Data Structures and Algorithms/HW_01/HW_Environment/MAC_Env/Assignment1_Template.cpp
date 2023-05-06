@@ -10,7 +10,7 @@
 #include <iostream>
 #include <string>
 #include <ctime>
-#include "myUtilityClass.h"
+#include "myUtilityClassMAC.h"
 
 using namespace std;
 
@@ -21,7 +21,7 @@ int main()
     int choice = 1;
     int size, repeat;
 
-    string recFile = "./";
+    string recFile = "/Users/trando/Desktop/coding/c++/Data Structures and Algorithms/HW_01/HW_Environment/MAC_Env/";
 
     //Ascii art welcome message
 
@@ -37,7 +37,7 @@ int main()
 
     cout << "Enter the filename for output file: " << endl;
     getline(cin, line);
-    recFile.append(line);
+    recFile.append(line + ".txt");
     ofstream inFile(recFile);
 
     //clears contents of recording output file
@@ -56,7 +56,7 @@ int main()
     
     while(choice != 5)
     {
-        string fileName, outFileName = "./"; //resets filepath
+        string fileName, outFileName = "/Users/trando/Desktop/coding/c++/Data Structures and Algorithms/HW_01/HW_Environment/MAC_Env/"; //resets filepath
         line = "";
         //Menu
         cout << "Enter which option you would like to choose: " << endl;
@@ -84,25 +84,18 @@ int main()
             getline(cin, line);
             fileName.append(line);
 
-            cout << fileName << endl;
+            //cout << fileName << endl;
 
             mUC.writeOutput(inFile, "Enter the name of your text file: ");
             mUC.writeOutput(inFile, fileName);
 
-            //Enter name of array (acts as key)
-            cout << "Enter the name of your array" << endl;
-            cin.ignore(cin.rdbuf()->in_avail()); //clears buffer from escape character of \n from getline previously
-            getline(cin, arrName);
-
-            mUC.writeOutput(inFile, "Enter the name of your array");
-            mUC.writeOutput(inFile, arrName);
-
             //If statement to see if it can find a file
-            if(mUC.findFile(fileName))
+            int flag = mUC.readFile(fileName);
+            if(flag != -1)
             {
                 //if successful prints out number of lines in file
-                cout << "Success! Amount of numbers in file is: " << mUC.readFileInt(fileName, arrName) << "." << endl;
-                mUC.writeOutput(inFile, "Success! Amount of numbers in file is: " + to_string(mUC.readFileInt(fileName, arrName)) + ".");
+                cout << "Success! Amount of numbers in file is: " << to_string(flag) << "." << endl;
+                mUC.writeOutput(inFile, "Success! Amount of numbers in file is: " + to_string(flag) + ".");
             }
             else
             {
